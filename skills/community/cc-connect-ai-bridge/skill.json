@@ -1,0 +1,11 @@
+{
+    "name": "cc-connect-ai-bridge",
+    "category": "community",
+    "source_url": "https://github.com/aradotso/trending-skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Bridge local AI coding agents (Claude Code, Cursor, Gemini CLI, Codex) to messaging platforms (Feishu, Telegram, Slack, Discord, DingTalk, WeChat Work, LINE) without a public IP."
+}

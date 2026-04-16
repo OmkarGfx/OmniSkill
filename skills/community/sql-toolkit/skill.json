@@ -1,0 +1,11 @@
+{
+    "name": "sql-toolkit",
+    "category": "community",
+    "source_url": "https://github.com/ljt-520/openclaw-backup",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Query, design, migrate, and optimize SQL databases. Use when working with SQLite, PostgreSQL, or MySQL \u2014 schema design, writing queries, creating migrations, indexing, backup/restore, and debugging slow queries. No ORMs required."
+}

@@ -1,0 +1,11 @@
+{
+    "name": "finalize-agent-prompt",
+    "category": "community",
+    "source_url": "https://github.com/github/awesome-copilot/finalize-agent-prompt",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Finalize prompt file using the role of an AI agent to polish the prompt for the end user."
+}

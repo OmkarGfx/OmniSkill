@@ -1,0 +1,11 @@
+{
+    "name": "slack-master",
+    "category": "community",
+    "source_url": "https://github.com/abdullahbeam/nexus-design-abdullah",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Shared resource library for Slack integration skills. DO NOT load directly - provides common references (setup, API docs, error handling, authentication) and scripts used by slack-connect and individual Slack skills."
+}

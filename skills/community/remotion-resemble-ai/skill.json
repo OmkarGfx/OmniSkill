@@ -1,0 +1,11 @@
+{
+    "name": "remotion-resemble-ai",
+    "category": "community",
+    "source_url": "https://github.com/resemble-ai/remotion-resemble-skill",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Create professional AI-narrated videos with Remotion and Resemble.ai - from educational tutorials to product launches"
+}

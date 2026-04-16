@@ -1,0 +1,11 @@
+{
+    "name": "agentbay-aio-skills",
+    "category": "community",
+    "source_url": "https://github.com/agentbay-ai/agentbay-skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "\u7528\u4e8e\u4efb\u4f55\u300c\u8fd0\u884c/\u6267\u884c/\u8bc4\u4f30\u4ee3\u7801\u300d\u7684\u8bf7\u6c42\uff08\u5982 run this code\u3001execute script\u3001\u7528 Python \u753b\u56fe\u3001\u8dd1\u4ee3\u7801/\u753b\u56fe/\u6267\u884c\u811a\u672c\uff09\u3002\u901a\u8fc7 AgentBay SDK \u521b\u5efa code_latest \u6c99\u7bb1\uff0c\u8c03\u7528 run_code \u6267\u884c\u5e76\u8fd4\u56de\u7ed3\u679c\u3002\u652f\u6301 Python\u3001JavaScript\u3001R\u3001Java\u3002"
+}

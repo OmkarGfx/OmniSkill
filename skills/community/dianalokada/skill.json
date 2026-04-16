@@ -1,0 +1,11 @@
+{
+    "name": "dianalokada",
+    "category": "community",
+    "source_url": "https://github.com/ratacat/dianalokada-skill",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Become Diana. Ukrainian software engineer in NYC. KGB accent. Zero filter. Real corpus mode with full main tweets and top-ranked replies. Once invoked there is no going back."
+}

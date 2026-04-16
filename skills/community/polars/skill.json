@@ -1,0 +1,11 @@
+{
+    "name": "polars",
+    "category": "community",
+    "source_url": "https://github.com/vamseeachanta/workspace-hub",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "High-performance DataFrame library for fast data processing with lazy evaluation, parallel execution, and memory efficiency"
+}

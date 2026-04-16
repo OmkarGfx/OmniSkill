@@ -1,0 +1,11 @@
+{
+    "name": "developing-genkit-go",
+    "category": "community",
+    "source_url": "https://github.com/firebase/agent-skills/developing-genkit-go",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Develop AI-powered applications using Genkit in Go. Use when the user asks to build AI features, agents, flows, or tools in Go using Genkit, or when working with Genkit Go code involving generation, prompts, streaming, tool calling, or model providers."
+}

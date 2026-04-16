@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block head %}
+    <title>{% block title %}{{ config.title }}{% endblock %}</title>
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}">
+    {% elif section.description %}
+    <meta name="description" content="{{ section.description }}">
+    {% elif config.description %}
+    <meta name="description" content="{{ config.description }}">
+    {% endif %}
+    <link rel="stylesheet" href="{{ get_url(path='css/style.css', cachebust=true) }}">
+    {% if config.generate_feeds %}
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="{{ get_url(path='atom.xml', trailing_slash=false) }}">
+    {% endif %}
+    {% endblock head %}
+</head>
+<body>
+    {% block header %}
+    <header>
+        <nav>
+            <a href="{{ config.base_url }}" class="logo">{{ config.title }}</a>
+            {% if config.extra.nav_items %}
+            <ul>
+            {% for item in config.extra.nav_items %}
+                <li>
+                    <a href="{{ item.url }}" {% if current_path == item.url %}class="active"{% endif %}>
+                        {{ item.label }}
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+        </nav>
+    </header>
+    {% endblock header %}
+
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+
+    {% block footer %}
+    <footer>
+        <p>&copy; {{ now() | date(format="%Y") }} {{ config.title }}</p>
+    </footer>
+    {% endblock footer %}
+
+    {% block scripts %}{% endblock scripts %}
+</body>
+</html>

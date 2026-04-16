@@ -1,0 +1,11 @@
+{
+    "name": "gh-cli",
+    "category": "community",
+    "source_url": "https://github.com/tenequm/claude-plugins",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "GitHub CLI for remote repository analysis, file fetching, codebase comparison, and discovering trending code/repos. Use when analyzing repos without cloning, comparing codebases, or searching for popular GitHub projects."
+}

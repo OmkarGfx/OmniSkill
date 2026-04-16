@@ -1,133 +1,99 @@
 ---
 name: web-search
-description: 通用网络搜索技能，支持多引擎搜索（百度、必应、DuckDuckGo），无需API密钥即可获取实时信息
-version: 1.3.0
-author: yejinlei
+description: "Search the web using the agent's built-in WebSearch tool. Use when you need to find current information, verify facts, or research topics. No API key required. Keywords: search, web, internet, lookup, find, research, current events, facts."
 license: MIT
-tags:
-  - search
-  - web
-  - internet
-  - baidu
-  - bing
+compatibility: Works with any agent that has WebSearch capability
+metadata:
+  author: jwynia
+  version: "1.0"
+  type: utility
+  mode: generative
+  domain: research
 ---
 
-# Web Search Skill
+# Web Search
 
-A powerful web search skill supporting multiple search engines without requiring API keys.
+Search the web using the agent's built-in WebSearch capability. No external API keys required.
 
-## Features
+## When to Use This Skill
 
-- 🔍 **Multi-Engine Support**: Baidu (Playwright), Bing, DuckDuckGo
-- 🌐 **No API Key Required**: Uses browser automation and web scraping
-- 🔄 **Smart Fallback**: Automatically switches engines when one fails
-- 📊 **Structured Results**: Returns clean search results with title, URL, and snippet
-- 🚀 **High Performance**: Async support with Playwright browser automation
+Use this skill when:
+- You need to find current information not in your training data
+- The user asks about recent events, news, or updates
+- You need to verify facts or find sources
+- Research requires real-time web data
 
-## Usage
+Do NOT use this skill when:
+- Information is already in your knowledge base
+- You're working with local files or code
+- You need advanced filtering (use `web-search-tavily` instead)
+- A more specific research skill applies
+
+## How to Search
+
+Use the agent's built-in **WebSearch** tool directly. The tool accepts a query string and returns relevant web results.
 
 ### Basic Search
 
-```python
-result = main({
-    "action": "search",
-    "query": "Python tutorial",
-    "num_results": 5
-})
+Simply invoke WebSearch with your query:
+
+```
+Query: "React 19 new features"
 ```
 
-### Deep Search
+### Effective Query Strategies
 
-```python
-result = main({
-    "action": "deep_search",
-    "query": "machine learning latest research",
-    "num_results": 5
-})
+**Be specific and include context:**
+- Bad: "react hooks"
+- Good: "React 19 useActionState hook tutorial"
+
+**Include the year for current information:**
+- Bad: "best TypeScript practices"
+- Good: "TypeScript best practices 2025"
+
+**Use domain-specific terms:**
+- Bad: "how to make website fast"
+- Good: "web performance optimization Core Web Vitals"
+
+### When to Search Multiple Times
+
+Search iteratively when:
+1. Initial results are too broad → Refine with more specific terms
+2. Looking for multiple perspectives → Search different phrasings
+3. Verifying facts → Search for corroborating sources
+4. Deep research → Start broad, then drill into specifics
+
+## Output Handling
+
+After receiving search results:
+
+1. **Cite sources** - Always include URLs when sharing information
+2. **Synthesize** - Combine information from multiple results
+3. **Verify** - Cross-reference claims across sources
+4. **Date-check** - Note publication dates for time-sensitive information
+
+### Source Attribution Format
+
+When sharing information from search results:
+
+```
+According to [Source Name](URL), ...
+
+Sources:
+- [Title 1](url1)
+- [Title 2](url2)
 ```
 
-### Web Page Crawling
+## Limitations
 
-```python
-result = main({
-    "action": "crawl",
-    "url": "https://example.com"
-})
-```
+- Results depend on the agent's WebSearch implementation
+- Cannot access paywalled or login-required content
+- May not have the most recent information (depends on indexing)
+- No domain filtering or relevance scoring (use `web-search-tavily` for these features)
 
-## Input Parameters
+## Related Skills
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| action | string | Yes | Operation type: "search", "deep_search", or "crawl" |
-| query | string | Conditional | Search query (required for search/deep_search) |
-| url | string | Conditional | Target URL (required for crawl) |
-| num_results | int | No | Number of results, default 5, max 20 |
-| region | string | No | Region code, default 'cn-zh' |
-
-## Output Format
-
-### Search Result
-
-```python
-{
-    "success": True,
-    "query": "search query",
-    "engine": "baidu+playwright",
-    "num_results": 5,
-    "results": [
-        {
-            "title": "Result title",
-            "href": "https://...",
-            "body": "Snippet content"
-        }
-    ],
-    "message": "Search completed"
-}
-```
-
-### Deep Search Result
-
-```python
-{
-    "success": True,
-    "query": "search query",
-    "search_results": [...],
-    "detailed_info": {
-        "extracted_content": "..."
-    },
-    "message": "Deep search completed"
-}
-```
-
-## Execution
-
-**type**: script
-**script_path**: scripts/web_search.py
-**entry_point**: main
-**dependencies**: 
-  - uv>=0.1.0
-  - requests>=2.28.0
-  - baidusearch>=1.0.3
-  - crawl4ai>=0.8.0
-  - playwright>=1.40.0
-
-## Search Strategy
-
-1. **Primary**: `baidusearch` library (fastest, no browser)
-2. **Secondary**: Playwright + Baidu (most reliable, bypasses anti-bot)
-3. **Tertiary**: DuckDuckGo (privacy-focused)
-4. **Fallback**: Bing (international)
-
-## Notes
-
-1. **First Run**: Playwright will download Chromium browser on first use (~100MB)
-2. **Rate Limiting**: Be mindful of search frequency to avoid temporary blocks
-3. **Network**: Requires internet connection
-4. **Results**: May vary based on search engine algorithms and location
-
-## Error Handling
-
-- Returns `{"success": False, "message": "..."}` on errors
-- Automatically retries with fallback engines
-- Graceful degradation when optional dependencies are missing
+- **web-search-tavily** - Advanced search with API key, domain filtering, and relevance scores
+- **research-workflow** - Structured research with planning and synthesis
+- **fact-check** - Verify specific claims against sources
+- **claim-investigation** - Investigate viral claims and social media content

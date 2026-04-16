@@ -1,0 +1,11 @@
+{
+    "name": "suggest-awesome-github-copilot-agents",
+    "category": "community",
+    "source_url": "https://github.com/github/awesome-copilot/suggest-awesome-github-copilot-agents",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Suggest relevant GitHub Copilot Custom Agents files from the awesome-copilot repository based on current repository context and chat history, avoiding duplicates with existing custom agents in this repository, and identifying outdated agents that need updates."
+}

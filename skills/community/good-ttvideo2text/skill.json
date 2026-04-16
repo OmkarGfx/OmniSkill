@@ -1,0 +1,11 @@
+{
+    "name": "good-ttvideo2text",
+    "category": "community",
+    "source_url": "https://github.com/imgoodbai/goodable",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Extract audio from short videos (Douyin/TikTok) and transcribe to text with timestamps. Use when user provides video URL and needs audio transcription."
+}

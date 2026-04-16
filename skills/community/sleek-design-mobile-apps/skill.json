@@ -1,0 +1,11 @@
+{
+    "name": "sleek-design-mobile-apps",
+    "category": "community",
+    "source_url": "https://github.com/sleekdotdesign/agent-skills/sleek-design-mobile-apps",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Use when the user wants to design a mobile app, create screens, build UI, or interact with their Sleek projects. Covers high-level requests (\"design an app that does X\") and specific ones (\"list my projects\", \"create a new project\", \"screenshot that screen\")."
+}

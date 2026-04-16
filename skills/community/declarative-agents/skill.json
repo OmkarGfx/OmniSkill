@@ -1,0 +1,11 @@
+{
+    "name": "declarative-agents",
+    "category": "community",
+    "source_url": "https://github.com/github/awesome-copilot/declarative-agents",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Complete development kit for Microsoft 365 Copilot declarative agents with three comprehensive workflows (basic, advanced, validation), TypeSpec support, and Microsoft 365 Agents Toolkit integration"
+}

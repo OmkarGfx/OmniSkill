@@ -1,0 +1,11 @@
+{
+    "name": "zread-expert",
+    "category": "community",
+    "source_url": "https://github.com/tianxiao1430-jpg/zai-skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Deep repository analysis skill for Z.AI Zread MCP."
+}

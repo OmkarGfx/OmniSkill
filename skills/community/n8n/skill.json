@@ -1,0 +1,11 @@
+{
+    "name": "n8n",
+    "category": "community",
+    "source_url": "https://github.com/vamseeachanta/workspace-hub",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Open-source workflow automation platform with visual node-based editor, 400+ integrations, webhooks, and self-hosted deployment capabilities"
+}

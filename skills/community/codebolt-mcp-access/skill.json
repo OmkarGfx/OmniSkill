@@ -1,11 +1,5 @@
 {
     "name": "codebolt-mcp-access",
     "category": "community",
-    "source_url": "https://github.com/codeboltai/codeboltjs",
-    "supported_models": [
-        "All"
-    ],
-    "capabilities": [],
-    "install_runtime": "npx",
-    "description": "Core skill for Codebolt agents to interact with the Codebolt MCP (Model Context Protocol) API. Use when agents need to execute tools for file operations, git, browser automation, terminal, memory, orchestration, planning, testing, collaboration, or any Codebolt platform functionality. Triggers on requests involving codebolt.tools.executeTool(), file system operations, git commands, browser control, agent orchestration, task management, or any MCP namespace operations."
+    "source_url": "https://github.com/codeboltai/codeboltjs/codebolt-mcp-access"
 }

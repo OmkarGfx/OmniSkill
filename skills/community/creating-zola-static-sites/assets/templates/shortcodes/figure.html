@@ -1,0 +1,17 @@
+<figure class="figure {% if class %}{{ class }}{% endif %}">
+    {% if resize %}
+    {% set img = resize_image(path=src, width=resize | int, op="fit_width", format="webp") %}
+    <img src="{{ img.url }}" 
+         width="{{ img.width }}" 
+         height="{{ img.height }}"
+         alt="{{ alt | default(value='') }}"
+         loading="lazy">
+    {% else %}
+    <img src="{{ get_url(path=src) }}" 
+         alt="{{ alt | default(value='') }}"
+         loading="lazy">
+    {% endif %}
+    {% if caption %}
+    <figcaption>{{ caption | markdown(inline=true) | safe }}</figcaption>
+    {% endif %}
+</figure>

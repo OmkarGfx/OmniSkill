@@ -1,0 +1,11 @@
+{
+    "name": "firebase-local-env-setup",
+    "category": "community",
+    "source_url": "https://github.com/firebase/agent-skills/firebase-local-env-setup",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Bare minimum INITIAL setup for getting started with Firebase (Node.js, CLI installation, first-time login). Use ONLY for first-time setup. For updating, troubleshooting, or refreshing an existing environment, use the firebase-basics skill instead."
+}

@@ -1,0 +1,11 @@
+{
+    "name": "firebase-hosting-basics",
+    "category": "community",
+    "source_url": "https://github.com/firebase/agent-skills/firebase-hosting-basics",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Skill for working with Firebase Hosting (Classic). Use this when you want to deploy static web apps, Single Page Apps (SPAs), or simple microservices. Do NOT use for Firebase App Hosting."
+}

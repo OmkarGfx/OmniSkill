@@ -1,0 +1,11 @@
+{
+    "name": "typescript-advanced-types",
+    "category": "community",
+    "source_url": "https://github.com/wshobson/agents/typescript-advanced-types",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Master TypeScript's advanced type system including generics, conditional types, mapped types, template literals, and utility types for building type-safe applications. Use when implementing complex type logic, creating reusable type utilities, or ensuring compile-time type safety in TypeScript projects."
+}

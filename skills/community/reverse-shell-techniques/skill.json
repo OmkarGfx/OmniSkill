@@ -1,0 +1,11 @@
+{
+    "name": "reverse-shell-techniques",
+    "category": "community",
+    "source_url": "https://github.com/yaklang/hack-skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Reverse shell techniques playbook. Use when establishing remote shells including language one-liners, encrypted shells (OpenSSL/socat/ncat), web shells, PTY upgrades, file transfer methods, PowerShell shells, and Windows payload generation."
+}

@@ -1,0 +1,11 @@
+{
+    "name": "ucp",
+    "category": "community",
+    "source_url": "https://github.com/vercel-labs/agentic-commerce-skills/ucp",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Expert-level implementation assistant for the Universal Commerce Protocol (UCP). Provides comprehensive tooling for adding UCP support to Next.js ecommerce codebases \u2014 from initial consultation through full implementation, testing, and validation."
+}

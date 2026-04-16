@@ -1,0 +1,11 @@
+{
+    "name": "crypto-trading",
+    "category": "community",
+    "source_url": "https://github.com/cowork-os/cowork-os",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Use ccxt (Python) for crypto prices, balances, and order actions across 100+ exchanges."
+}

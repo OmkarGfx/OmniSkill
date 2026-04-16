@@ -1,0 +1,11 @@
+{
+    "name": "firebase-auth-basics",
+    "category": "community",
+    "source_url": "https://github.com/firebase/agent-skills/firebase-auth-basics",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Guide for setting up and using Firebase Authentication. Use this skill when the user's app requires user sign-in, user management, or secure data access using auth rules."
+}

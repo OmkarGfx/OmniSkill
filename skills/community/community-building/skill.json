@@ -1,0 +1,11 @@
+{
+    "name": "community-building",
+    "category": "community",
+    "source_url": "https://github.com/manojbajaj95/gtm-skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Build and grow online communities across all platforms and contexts \u2014 from developer/B2B communities (Discord, Slack, Circle, Discourse) to social communities (Twitter/X, Reddit, Farcaster) to crypto/holder communities (Telegram). Covers strategy, platform selection, channel architecture, member journey mapping, onboarding, engagement rituals, ambassador/champions programs, moderation, governance, growth, retention, crisis management, and metrics.\nUse for: community-led growth, community strategy, developer community, user community, Discord/Slack/forum/Telegram setup, ambassador programs, community health, holder psychology, engagement systems, social community building, cross-platform coordination.\n"
+}

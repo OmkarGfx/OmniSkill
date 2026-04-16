@@ -1,0 +1,11 @@
+{
+    "name": "agent-device",
+    "category": "community",
+    "source_url": "https://github.com/callstackincubator/agent-device/agent-device",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Automates interactions for Apple-platform apps (iOS, tvOS, macOS) and Android devices. Use when navigating apps, taking snapshots/screenshots, tapping, typing, scrolling, or extracting UI info across mobile, TV, and desktop targets."
+}

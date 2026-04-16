@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PipelineOS vs DealForce — The CRM That Closes Itself</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-light: #818cf8;
+      --primary-dark: #4f46e5;
+      --heading: #111827;
+      --text: #4b5563;
+      --text-light: #9ca3af;
+      --border: #e5e7eb;
+      --surface: #faf9f7;
+      --surface-alt: #f3f2ef;
+      --white: #ffffff;
+      --red: #ef4444;
+      --green: #10b981;
+      --orange: #f97316;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: var(--text);
+      background: var(--white);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: sticky; top: 0; z-index: 100; height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(20px, 4vw, 56px);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 21px; font-weight: 800; color: var(--heading);
+      text-decoration: none; letter-spacing: -0.6px;
+    }
+    .nav-logo span { color: var(--primary); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--text);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--heading); }
+    .nav-actions { display: flex; align-items: center; gap: 16px; }
+    .nav-signin {
+      font-size: 14px; font-weight: 500; color: var(--text);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-signin:hover { color: var(--heading); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: inherit; font-weight: 600; text-decoration: none;
+      border: none; cursor: pointer; transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--primary); color: var(--white);
+      padding: 10px 22px; border-radius: 10px; font-size: 14px;
+    }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(99,102,241,0.25); }
+    .btn-primary-lg {
+      background: var(--primary); color: var(--white);
+      padding: 16px 36px; border-radius: 12px; font-size: 16px;
+    }
+    .btn-primary-lg:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(99,102,241,0.3); }
+    .btn-outline {
+      background: transparent; color: var(--heading);
+      padding: 16px 36px; border-radius: 12px; font-size: 16px;
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--primary); color: var(--primary); background: rgba(99,102,241,0.04); }
+
+    /* ===== CONTAINER ===== */
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px); }
+    .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px); }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 40%, #e0e7ff 100%);
+      padding: 80px 0 96px;
+      overflow: hidden;
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-block; font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.6px; color: var(--primary);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(38px, 5vw, 56px); font-weight: 900;
+      letter-spacing: -2px; line-height: 1.06; color: var(--heading);
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: 18px; line-height: 1.7; color: var(--text);
+      margin-bottom: 36px; max-width: 480px;
+    }
+    .hero-ctas { display: flex; gap: 14px; margin-bottom: 40px; flex-wrap: wrap; }
+    .hero-badges { display: flex; gap: 20px; flex-wrap: wrap; }
+    .hero-badge {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--white); padding: 8px 16px; border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      font-size: 13px; font-weight: 600; color: var(--heading);
+    }
+    .hero-badge .stars { color: #fbbf24; font-size: 14px; }
+    .hero-badge .score { color: var(--primary); font-weight: 700; }
+    .hero-badge .platform { color: var(--text-light); font-weight: 500; }
+
+    /* Dashboard mockup */
+    .hero-dashboard {
+      background: var(--white); border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+      overflow: hidden; transform: perspective(1200px) rotateY(-3deg) rotateX(1deg);
+    }
+    .dash-topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px; border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .dash-topbar-left { display: flex; align-items: center; gap: 12px; }
+    .dash-logo { font-size: 13px; font-weight: 800; color: var(--primary); }
+    .dash-search {
+      background: var(--white); border: 1px solid var(--border); border-radius: 6px;
+      padding: 5px 12px; font-size: 11px; color: var(--text-light); width: 140px;
+    }
+    .dash-avatar {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--primary-light); display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: var(--white);
+    }
+    .dash-body { padding: 20px; }
+    .dash-greeting { font-size: 15px; font-weight: 700; color: var(--heading); margin-bottom: 16px; }
+    .dash-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
+    .dash-stat {
+      background: var(--surface); border-radius: 10px; padding: 14px;
+    }
+    .dash-stat-label { font-size: 10px; font-weight: 600; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; }
+    .dash-stat-value { font-size: 22px; font-weight: 800; color: var(--heading); }
+    .dash-stat-change { font-size: 10px; font-weight: 600; color: var(--green); margin-top: 2px; }
+    .dash-pipeline-label { font-size: 11px; font-weight: 700; color: var(--heading); margin-bottom: 10px; }
+    .dash-pipeline-row {
+      display: flex; align-items: center; gap: 10px; padding: 8px 0;
+      border-bottom: 1px solid #f3f2ef;
+    }
+    .dash-pipeline-row:last-child { border-bottom: none; }
+    .dash-deal-name { font-size: 12px; font-weight: 600; color: var(--heading); flex: 1; }
+    .dash-deal-amount { font-size: 12px; font-weight: 700; color: var(--primary); }
+    .dash-deal-stage {
+      font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 20px;
+    }
+    .stage-won { background: #ecfdf5; color: var(--green); }
+    .stage-active { background: #eff6ff; color: #3b82f6; }
+    .stage-new { background: #fef3c7; color: #d97706; }
+
+    /* ===== SOCIAL PROOF ===== */
+    .social-proof {
+      padding: 40px 0; border-bottom: 1px solid var(--border);
+    }
+    .social-proof-inner {
+      display: flex; align-items: center; gap: 40px; flex-wrap: wrap; justify-content: center;
+    }
+    .social-proof-label {
+      font-size: 12px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-light); white-space: nowrap;
+    }
+    .social-proof-logos { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; justify-content: center; }
+    .social-proof-logo {
+      font-size: 16px; font-weight: 700; color: var(--text-light);
+      opacity: 0.45; transition: opacity 0.25s; letter-spacing: -0.3px;
+    }
+    .social-proof-logo:hover { opacity: 0.8; }
+
+    /* ===== SECTION COMMON ===== */
+    .section { padding: 100px 0; }
+    .section-surface { background: var(--surface); }
+    .section-label {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.4px; color: var(--primary); margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px); font-weight: 800;
+      letter-spacing: -1.5px; line-height: 1.1; color: var(--heading);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px; line-height: 1.7; color: var(--text);
+      max-width: 560px; margin-bottom: 48px;
+    }
+    .section-sub.centered { margin-left: auto; margin-right: auto; text-align: center; }
+    .section-header-center { text-align: center; }
+    .section-header-center .section-sub { margin-left: auto; margin-right: auto; }
+
+    /* ===== COMPARISON TABLE ===== */
+    .comparison-table {
+      width: 100%; border-collapse: separate; border-spacing: 0;
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .comparison-table thead th {
+      background: var(--heading); color: var(--white);
+      padding: 18px 24px; font-size: 14px; font-weight: 700;
+      text-align: left;
+    }
+    .comparison-table thead th:first-child { width: 34%; }
+    .comparison-table thead th:nth-child(2),
+    .comparison-table thead th:nth-child(3) { width: 33%; text-align: center; }
+    .comparison-table thead th .th-brand {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .comparison-table thead .th-score {
+      font-size: 11px; font-weight: 500; opacity: 0.7; display: block; margin-top: 2px;
+    }
+    .comparison-table tbody tr:nth-child(odd) { background: var(--white); }
+    .comparison-table tbody tr:nth-child(even) { background: var(--surface); }
+    .comparison-table tbody td {
+      padding: 16px 24px; font-size: 14px; border-bottom: 1px solid var(--border);
+    }
+    .comparison-table tbody td:first-child { font-weight: 600; color: var(--heading); }
+    .comparison-table tbody td:nth-child(2),
+    .comparison-table tbody td:nth-child(3) { text-align: center; }
+    .comparison-table .val-bad { color: var(--red); font-weight: 600; }
+    .comparison-table .val-good { color: var(--green); font-weight: 600; }
+    .comparison-table .val-warn { color: var(--orange); font-weight: 600; }
+    .table-group-header td {
+      font-size: 11px !important; font-weight: 700 !important;
+      text-transform: uppercase; letter-spacing: 1.2px;
+      color: var(--primary) !important; padding: 12px 24px !important;
+      background: #f0eefb !important; border-bottom: 1px solid var(--border) !important;
+    }
+    .table-review-row td {
+      padding: 20px 24px !important; background: var(--surface) !important;
+      border-bottom: none !important;
+    }
+    .table-review-scores {
+      display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;
+    }
+    .table-review-badge {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600; color: var(--heading);
+    }
+    .table-review-badge .platform-tag {
+      font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px;
+    }
+    .tag-g2 { background: #fff1f0; color: #dc2626; }
+    .tag-capterra { background: #fff7ed; color: #c2410c; }
+    .tag-trustradius { background: #f0fdf4; color: #15803d; }
+
+    /* ===== PAIN POINTS ===== */
+    .pain-cards { display: flex; flex-direction: column; gap: 28px; }
+    .pain-card {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;
+      background: var(--white); border-radius: 16px; padding: 40px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04); border: 1px solid var(--border);
+    }
+    .pain-card.single-card {
+      grid-template-columns: 1fr; max-width: 640px;
+    }
+    .pain-icon {
+      width: 44px; height: 44px; border-radius: 12px; display: flex;
+      align-items: center; justify-content: center; font-size: 20px;
+      margin-bottom: 16px;
+    }
+    .pain-icon-red { background: #fef2f2; }
+    .pain-title {
+      font-size: 22px; font-weight: 800; color: var(--heading);
+      letter-spacing: -0.5px; margin-bottom: 12px;
+    }
+    .pain-desc {
+      font-size: 15px; line-height: 1.75; color: var(--text);
+    }
+    .pain-quote-card {
+      background: var(--surface); border-radius: 14px; padding: 28px;
+      border: 1px solid var(--border); position: relative;
+    }
+    .pain-quote-platform {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; padding: 4px 10px;
+      border-radius: 6px; margin-bottom: 14px;
+    }
+    .pain-quote-text {
+      font-size: 15px; font-weight: 500; color: var(--heading);
+      line-height: 1.7; font-style: italic; margin-bottom: 14px;
+    }
+    .pain-quote-text em {
+      color: var(--red); font-style: italic; font-weight: 600;
+    }
+    .pain-quote-source {
+      font-size: 12px; color: var(--text-light); font-weight: 500;
+    }
+
+    /* ===== CUSTOMER STORY ===== */
+    .customer-story {
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: center;
+      background: var(--white); border-radius: 20px; padding: 48px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04); border: 1px solid var(--border);
+    }
+    .customer-story-logo { font-size: 28px; font-weight: 800; color: var(--heading); margin-bottom: 20px; letter-spacing: -0.5px; }
+    .customer-story-metric { font-size: 48px; font-weight: 900; color: var(--primary); margin-bottom: 8px; letter-spacing: -2px; }
+    .customer-story-metric-label { font-size: 15px; color: var(--text); margin-bottom: 24px; }
+    .customer-story-quote {
+      font-size: 18px; font-weight: 500; color: var(--heading);
+      line-height: 1.7; border-left: 3px solid var(--primary);
+      padding-left: 20px;
+    }
+    .customer-story-author { font-size: 14px; color: var(--text-light); margin-top: 16px; }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonial-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .testimonial-card {
+      background: var(--white); border-radius: 14px; padding: 28px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .testimonial-card:hover {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06); transform: translateY(-2px);
+    }
+    .testimonial-stars { color: #fbbf24; font-size: 14px; margin-bottom: 14px; }
+    .testimonial-text {
+      font-size: 14px; line-height: 1.7; color: var(--text); margin-bottom: 18px;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--surface-alt); display: flex; align-items: center;
+      justify-content: center; font-size: 14px; font-weight: 700; color: var(--primary);
+    }
+    .testimonial-name { font-size: 13px; font-weight: 700; color: var(--heading); }
+    .testimonial-role { font-size: 12px; color: var(--text-light); }
+
+    /* ===== MIGRATION ===== */
+    .migration-timeline { max-width: 640px; position: relative; }
+    .migration-step {
+      display: flex; gap: 24px; position: relative; padding-bottom: 40px;
+    }
+    .migration-step:last-child { padding-bottom: 0; }
+    .migration-step::before {
+      content: ''; position: absolute; left: 20px; top: 44px;
+      width: 2px; height: calc(100% - 44px); background: var(--border);
+    }
+    .migration-step:last-child::before { display: none; }
+    .step-number {
+      width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+      background: var(--primary); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 800; position: relative; z-index: 1;
+    }
+    .step-content { padding-top: 8px; }
+    .step-title { font-size: 17px; font-weight: 700; color: var(--heading); margin-bottom: 6px; }
+    .step-desc { font-size: 15px; color: var(--text); line-height: 1.65; }
+
+    /* ===== INTEGRATION ===== */
+    .integration-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .integration-card {
+      background: var(--white); border-radius: 14px; padding: 28px;
+      border: 1px solid var(--border); text-align: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .integration-card:hover {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06); transform: translateY(-2px);
+    }
+    .integration-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--surface); display: flex; align-items: center;
+      justify-content: center; margin: 0 auto 16px; font-size: 22px;
+    }
+    .integration-name { font-size: 15px; font-weight: 700; color: var(--heading); margin-bottom: 6px; }
+    .integration-desc { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+    /* ===== SECURITY ===== */
+    .security-badges {
+      display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+    }
+    .security-badge {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--white); border-radius: 14px; padding: 24px 32px;
+      border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .security-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: #f0fdf4; display: flex; align-items: center;
+      justify-content: center; font-size: 20px;
+    }
+    .security-name { font-size: 15px; font-weight: 700; color: var(--heading); }
+    .security-detail { font-size: 12px; color: var(--text-light); }
+
+    /* ===== FAQ ===== */
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-question {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 0; background: none; border: none; cursor: pointer;
+      font-family: inherit; font-size: 16px; font-weight: 600;
+      color: var(--heading); text-align: left; gap: 16px;
+    }
+    .faq-question:hover { color: var(--primary); }
+    .faq-chevron {
+      width: 20px; height: 20px; flex-shrink: 0; transition: transform 0.25s;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+    }
+    .faq-answer-inner {
+      padding: 0 0 22px; font-size: 15px; line-height: 1.75; color: var(--text);
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 50%, #e0e7ff 100%);
+      text-align: center;
+    }
+    .cta-title {
+      font-size: clamp(30px, 4vw, 48px); font-weight: 900;
+      color: var(--heading); letter-spacing: -1.5px; line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .cta-sub {
+      font-size: 18px; color: var(--text); margin-bottom: 36px;
+      max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7;
+    }
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--heading); color: rgba(255,255,255,0.6);
+      padding: 64px 0 40px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand { font-size: 20px; font-weight: 800; color: var(--white); margin-bottom: 14px; }
+    .footer-brand span { color: var(--primary-light); }
+    .footer-desc { font-size: 14px; line-height: 1.7; max-width: 260px; }
+    .footer-col-title { font-size: 13px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 16px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px; font-size: 13px;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-dashboard { transform: none; max-width: 520px; margin: 0 auto; }
+      .comparison-table { font-size: 13px; }
+      .comparison-table thead th,
+      .comparison-table tbody td { padding: 12px 14px; }
+      .pain-card { grid-template-columns: 1fr; gap: 24px; }
+      .customer-story { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .integration-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 56px 0 64px; }
+      .section { padding: 64px 0; }
+      .dash-stats { grid-template-columns: 1fr; }
+      .integration-grid { grid-template-columns: 1fr; }
+      .security-badges { flex-direction: column; align-items: center; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .table-review-scores { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== 1. NAV ===== -->
+<nav>
+  <a href="#" class="nav-logo">Pipeline<span>OS</span></a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#comparison">Compare</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#integrations">Integrations</a>
+  </div>
+  <div class="nav-actions">
+    <a href="#" class="nav-signin">Sign in</a>
+    <a href="#" class="btn btn-primary">Start for free</a>
+  </div>
+</nav>
+
+<!-- ===== 2. HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="hero-eyebrow">PipelineOS vs DealForce</span>
+        <h1>The best DealForce alternative.</h1>
+        <p class="hero-sub">Auto-capture every deal signal. Close 3x faster with AI forecasting that actually works. No $89/seat surprises.</p>
+        <div class="hero-ctas">
+          <a href="#" class="btn btn-primary-lg">Start for free</a>
+          <a href="#" class="btn btn-outline">Watch demo</a>
+        </div>
+        <div class="hero-badges">
+          <div class="hero-badge">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="score">4.6</span>
+            <span class="platform">on G2</span>
+          </div>
+          <div class="hero-badge">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="score">4.7</span>
+            <span class="platform">on Capterra</span>
+          </div>
+          <div class="hero-badge">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+            <span class="score">8.9</span>
+            <span class="platform">on TrustRadius</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-dashboard">
+        <div class="dash-topbar">
+          <div class="dash-topbar-left">
+            <span class="dash-logo">PipelineOS</span>
+            <div class="dash-search">Search deals, contacts...</div>
+          </div>
+          <div class="dash-avatar">SK</div>
+        </div>
+        <div class="dash-body">
+          <div class="dash-greeting">Good morning, Sarah</div>
+          <div class="dash-stats">
+            <div class="dash-stat">
+              <div class="dash-stat-label">Pipeline</div>
+              <div class="dash-stat-value">$2.4M</div>
+              <div class="dash-stat-change">+18% vs last month</div>
+            </div>
+            <div class="dash-stat">
+              <div class="dash-stat-label">Deals Won</div>
+              <div class="dash-stat-value">34</div>
+              <div class="dash-stat-change">+12 this week</div>
+            </div>
+            <div class="dash-stat">
+              <div class="dash-stat-label">Forecast</div>
+              <div class="dash-stat-value">92%</div>
+              <div class="dash-stat-change">confidence</div>
+            </div>
+          </div>
+          <div class="dash-pipeline-label">Active Deals</div>
+          <div class="dash-pipeline-row">
+            <span class="dash-deal-name">Acme Corp — Enterprise</span>
+            <span class="dash-deal-amount">$185K</span>
+            <span class="dash-deal-stage stage-won">Won</span>
+          </div>
+          <div class="dash-pipeline-row">
+            <span class="dash-deal-name">Globex — Growth Plan</span>
+            <span class="dash-deal-amount">$72K</span>
+            <span class="dash-deal-stage stage-active">Proposal</span>
+          </div>
+          <div class="dash-pipeline-row">
+            <span class="dash-deal-name">Initech — Starter</span>
+            <span class="dash-deal-amount">$28K</span>
+            <span class="dash-deal-stage stage-new">Discovery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. SOCIAL PROOF ===== -->
+<section class="social-proof">
+  <div class="container">
+    <div class="social-proof-inner">
+      <span class="social-proof-label">Trusted by teams at</span>
+      <div class="social-proof-logos">
+        <span class="social-proof-logo">Linear</span>
+        <span class="social-proof-logo">Vercel</span>
+        <span class="social-proof-logo">Ramp</span>
+        <span class="social-proof-logo">Mercury</span>
+        <span class="social-proof-logo">Loom</span>
+        <span class="social-proof-logo">Notion</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. COMPARISON TABLE ===== -->
+<section id="comparison" class="section section-surface">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-label">Compare</span>
+      <h2 class="section-title">PipelineOS vs DealForce</h2>
+      <p class="section-sub centered">See how PipelineOS stacks up on the features that matter most to sales teams.</p>
+    </div>
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>
+            <div class="th-brand" style="color: var(--orange);">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#f97316" stroke-width="2"/><path d="M6 9l2 2 4-4" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              DealForce
+            </div>
+            <span class="th-score">4.3 on G2</span>
+          </th>
+          <th>
+            <div class="th-brand" style="color: var(--primary-light);">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="16" height="16" rx="4" stroke="#818cf8" stroke-width="2"/><path d="M6 9l2 2 4-4" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              PipelineOS
+            </div>
+            <span class="th-score">4.6 on G2</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-group-header"><td colspan="3">Getting Started</td></tr>
+        <tr>
+          <td>Setup time</td>
+          <td class="val-bad">2-4 weeks</td>
+          <td class="val-good">60 seconds</td>
+        </tr>
+        <tr>
+          <td>Free plan</td>
+          <td class="val-bad">No</td>
+          <td class="val-good">Teams under 10</td>
+        </tr>
+        <tr>
+          <td>Starting price</td>
+          <td class="val-warn">$89/seat/mo</td>
+          <td class="val-good">Free / $29/seat</td>
+        </tr>
+        <tr class="table-group-header"><td colspan="3">Core Features</td></tr>
+        <tr>
+          <td>Data capture</td>
+          <td class="val-bad">Manual entry</td>
+          <td class="val-good">Auto-capture</td>
+        </tr>
+        <tr>
+          <td>Pipeline customization</td>
+          <td class="val-warn">5 fixed stages</td>
+          <td class="val-good">Fully customizable</td>
+        </tr>
+        <tr>
+          <td>Mobile app</td>
+          <td class="val-warn">View-only</td>
+          <td class="val-good">Full edit + offline</td>
+        </tr>
+        <tr class="table-group-header"><td colspan="3">AI & Automation</td></tr>
+        <tr>
+          <td>AI forecasting</td>
+          <td class="val-bad">+$30/seat add-on</td>
+          <td class="val-good">Included (8% accuracy)</td>
+        </tr>
+        <tr>
+          <td>Deal signal detection</td>
+          <td class="val-bad">Not available</td>
+          <td class="val-good">Automatic</td>
+        </tr>
+        <tr class="table-group-header"><td colspan="3">Analytics & Scale</td></tr>
+        <tr>
+          <td>Custom reports</td>
+          <td class="val-bad">Enterprise only</td>
+          <td class="val-good">All plans</td>
+        </tr>
+        <tr>
+          <td>API rate limit</td>
+          <td class="val-warn">100 calls/min</td>
+          <td class="val-good">Unlimited</td>
+        </tr>
+        <tr class="table-review-row">
+          <td colspan="3">
+            <div class="table-review-scores">
+              <div class="table-review-badge">
+                <span class="platform-tag tag-g2">G2</span>
+                PipelineOS 4.6 vs DealForce 4.3
+              </div>
+              <div class="table-review-badge">
+                <span class="platform-tag tag-capterra">Capterra</span>
+                PipelineOS 4.7 vs DealForce 4.1
+              </div>
+              <div class="table-review-badge">
+                <span class="platform-tag tag-trustradius">TrustRadius</span>
+                PipelineOS 8.9 vs DealForce 7.8
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== 5. PAIN POINTS ===== -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">Why teams switch</span>
+    <h2 class="section-title">The DealForce problems<br>PipelineOS solves</h2>
+    <p class="section-sub">Real feedback from real users. Here's what teams say after making the switch.</p>
+
+    <div class="pain-cards">
+      <!-- Pain 1: Usability -->
+      <div class="pain-card">
+        <div class="pain-content">
+          <div class="pain-icon pain-icon-red"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+          <h3 class="pain-title">A CRM that fights you at every step</h3>
+          <p class="pain-desc">DealForce's interface requires 3+ clicks for basic actions. Search is slow, navigation is confusing, and reps spend more time fighting the UI than closing deals.</p>
+        </div>
+        <div class="pain-quote-card">
+          <span class="pain-quote-platform tag-g2">G2 Review</span>
+          <p class="pain-quote-text">"The interface looks like it was <em>designed in 2015</em>. Every action requires <em>3+ clicks</em> and the search is <em>painfully slow</em>."</p>
+          <p class="pain-quote-source">Verified G2 Review — Sales Manager, Mid-Market</p>
+        </div>
+      </div>
+
+      <!-- Pain 2: Pricing -->
+      <div class="pain-card">
+        <div class="pain-content">
+          <div class="pain-icon pain-icon-red"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+          <h3 class="pain-title">Enterprise pricing, startup features</h3>
+          <p class="pain-desc">DealForce charges $89/seat/month — and that's before add-ons. Custom reports? Extra. AI forecasting? Extra. API access? Extra. PipelineOS includes everything from $29/seat.</p>
+        </div>
+        <div class="pain-quote-card">
+          <span class="pain-quote-platform tag-g2">G2 Review</span>
+          <p class="pain-quote-text">"We're paying <em>$89/seat/month</em> and still can't get <em>basic reporting without the add-on</em>."</p>
+          <p class="pain-quote-source">Verified G2 Review — VP Sales, SMB</p>
+        </div>
+      </div>
+
+      <!-- Pain 3: AI -->
+      <div class="pain-card">
+        <div class="pain-content">
+          <div class="pain-icon pain-icon-red"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 014 4v2H8V6a4 4 0 014-4z"/><rect x="3" y="8" width="18" height="12" rx="2"/><circle cx="9" cy="14" r="1.5" fill="#ef4444"/><circle cx="15" cy="14" r="1.5" fill="#ef4444"/><path d="M9 18h6"/></svg></div>
+          <h3 class="pain-title">AI that hallucinates your pipeline</h3>
+          <p class="pain-desc">DealForce's AI forecasting is a $30/seat add-on — and users report it's wildly inaccurate. PipelineOS forecasting is included in every plan, accurate to within 8%.</p>
+        </div>
+        <div class="pain-quote-card">
+          <span class="pain-quote-platform tag-capterra">Capterra Review</span>
+          <p class="pain-quote-text">"The AI forecasting predicted we'd close <em>$2M last quarter</em>. We closed <em>$800K</em>. We turned it off."</p>
+          <p class="pain-quote-source">Verified Capterra Review — Revenue Operations, Enterprise</p>
+        </div>
+      </div>
+
+      <!-- Pain 4: Analytics -->
+      <div class="pain-card">
+        <div class="pain-content">
+          <div class="pain-icon pain-icon-red"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
+          <h3 class="pain-title">Reports that answer yesterday's questions</h3>
+          <p class="pain-desc">DealForce locks custom reporting behind the Enterprise plan. Building a custom report takes a full day — and half the fields don't map correctly.</p>
+        </div>
+        <div class="pain-quote-card">
+          <span class="pain-quote-platform tag-g2">G2 Review</span>
+          <p class="pain-quote-text">"Building a custom report takes <em>a full day</em>. And <em>half the fields don't map correctly</em>."</p>
+          <p class="pain-quote-source">Verified G2 Review — Sales Ops, Mid-Market</p>
+        </div>
+      </div>
+
+      <!-- Pain 5: Flexibility (SINGLE CARD) -->
+      <div class="pain-card single-card">
+        <div>
+          <div class="pain-icon pain-icon-red"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
+          <h3 class="pain-title">Your workflow, their way</h3>
+          <p class="pain-desc" style="margin-bottom: 24px;">DealForce offers 5 fixed pipeline stages that can't be customized without contacting their solutions team. PipelineOS lets you configure everything yourself in minutes.</p>
+          <div class="pain-quote-card">
+            <span class="pain-quote-platform tag-trustradius">TrustRadius Review</span>
+            <p class="pain-quote-text">"We wanted to customize the pipeline stages and were told to <em>'contact our solutions team.'</em> It's a pipeline view."</p>
+            <p class="pain-quote-source">Verified TrustRadius Review — Head of Sales, SMB</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. CUSTOMER STORY ===== -->
+<section class="section section-surface">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-label">Customer Story</span>
+      <h2 class="section-title">Teams that made the switch</h2>
+      <p class="section-sub centered">See why leading sales organizations chose PipelineOS over DealForce.</p>
+    </div>
+    <div class="customer-story">
+      <div>
+        <div class="customer-story-logo">Ramp</div>
+        <div class="customer-story-metric">3x</div>
+        <div class="customer-story-metric-label">faster deal velocity after switching from DealForce</div>
+      </div>
+      <div>
+        <blockquote class="customer-story-quote">
+          "We switched from DealForce in a weekend. The import tool handled everything — contacts, deals, activities. Zero data loss. Within a month, our reps reclaimed 8+ hours per week that they used to spend on manual data entry."
+        </blockquote>
+        <p class="customer-story-author">— Priya R., Sales Ops Manager, Ramp</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. TESTIMONIALS ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-label">Testimonials</span>
+      <h2 class="section-title">Loved by sales teams</h2>
+      <p class="section-sub centered">Hear from the people who use PipelineOS every day.</p>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"PipelineOS eliminated manual data entry for our entire sales team. We reclaimed 8 hours per rep per week."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SK</div>
+          <div>
+            <div class="testimonial-name">Sarah K.</div>
+            <div class="testimonial-role">VP Sales, Linear</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"The AI forecasting is scary accurate. We went from 40% forecast accuracy to 92% in one quarter."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MT</div>
+          <div>
+            <div class="testimonial-name">Marcus T.</div>
+            <div class="testimonial-role">Revenue Operations, Vercel</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"We switched from DealForce in a weekend. The import tool handled everything — contacts, deals, activities. Zero data loss."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">PR</div>
+          <div>
+            <div class="testimonial-name">Priya R.</div>
+            <div class="testimonial-role">Sales Ops Manager, Ramp</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"Finally, a CRM that doesn't punish you for growing. Free for our first 8 reps, and $29/seat is nothing compared to what we were paying."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JL</div>
+          <div>
+            <div class="testimonial-name">Jordan L.</div>
+            <div class="testimonial-role">Head of Growth, Mercury</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"The mobile app actually works. Full editing, offline sync, deal updates from my phone."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AW</div>
+          <div>
+            <div class="testimonial-name">Alex W.</div>
+            <div class="testimonial-role">Account Executive, Loom</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"Custom reports in minutes, not days. I built our entire QBR dashboard in one afternoon."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">NF</div>
+          <div>
+            <div class="testimonial-name">Nina F.</div>
+            <div class="testimonial-role">Sales Analytics, Notion</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. MIGRATION ===== -->
+<section class="section section-surface">
+  <div class="container">
+    <span class="section-label">Migration</span>
+    <h2 class="section-title">Switch from DealForce<br>in one day</h2>
+    <p class="section-sub">No consultants. No data loss. No downtime. Here's how teams migrate.</p>
+
+    <div class="migration-timeline">
+      <div class="migration-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <div class="step-title">Sign up free</div>
+          <div class="step-desc">60 seconds, no credit card required. Your workspace is ready immediately.</div>
+        </div>
+      </div>
+      <div class="migration-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <div class="step-title">Import from DealForce</div>
+          <div class="step-desc">Contacts, deals, activities — all imported automatically. Custom fields map over perfectly.</div>
+        </div>
+      </div>
+      <div class="migration-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <div class="step-title">Configure your pipeline</div>
+          <div class="step-desc">Set up your stages, custom fields, and automation rules. Drag-and-drop — no code required.</div>
+        </div>
+      </div>
+      <div class="migration-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <div class="step-title">Go live</div>
+          <div class="step-desc">Auto-capture begins immediately. No training required — your team will feel at home in minutes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. INTEGRATIONS ===== -->
+<section id="integrations" class="section">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-label">Integrations</span>
+      <h2 class="section-title">Works with your stack</h2>
+      <p class="section-sub centered">PipelineOS connects to 200+ tools. No middleware, no workarounds.</p>
+    </div>
+    <div class="integration-grid">
+      <div class="integration-card">
+        <div class="integration-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="integration-name">Gmail &amp; Outlook</div>
+        <div class="integration-desc">Emails auto-logged to deals. No BCC, no forwarding, no manual work.</div>
+      </div>
+      <div class="integration-card">
+        <div class="integration-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2h-2v2a2 2 0 01-4 0v-6a2 2 0 012-2h4a2 2 0 012 2z"/><path d="M3 9a2 2 0 012-2h2V5a2 2 0 014 0v6a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+        <div class="integration-name">Slack</div>
+        <div class="integration-desc">Deal alerts, pipeline updates, and win notifications directly in your channels.</div>
+      </div>
+      <div class="integration-card">
+        <div class="integration-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+        <div class="integration-name">Zoom</div>
+        <div class="integration-desc">Calls auto-transcribed and linked to deals. AI extracts action items.</div>
+      </div>
+      <div class="integration-card">
+        <div class="integration-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div class="integration-name">HubSpot</div>
+        <div class="integration-desc">Bi-directional sync for marketing-sourced leads. No data silos.</div>
+      </div>
+      <div class="integration-card">
+        <div class="integration-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <div class="integration-name">Salesforce</div>
+        <div class="integration-desc">Migrate from Salesforce or run both. Full data sync in real-time.</div>
+      </div>
+      <div class="integration-card">
+        <div class="integration-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
+        <div class="integration-name">200+ more</div>
+        <div class="integration-desc">Zapier, Segment, Webhooks, REST API. If it has an API, PipelineOS connects.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. SECURITY ===== -->
+<section class="section section-surface">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-label">Security</span>
+      <h2 class="section-title">Enterprise-grade security</h2>
+      <p class="section-sub centered">Your data is protected by the same standards trusted by Fortune 500 companies.</p>
+    </div>
+    <div class="security-badges">
+      <div class="security-badge">
+        <div class="security-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+        <div>
+          <div class="security-name">SOC 2 Type II</div>
+          <div class="security-detail">Audited annually by independent third party</div>
+        </div>
+      </div>
+      <div class="security-badge">
+        <div class="security-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        <div>
+          <div class="security-name">GDPR Compliant</div>
+          <div class="security-detail">Full data residency and deletion controls</div>
+        </div>
+      </div>
+      <div class="security-badge">
+        <div class="security-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></div>
+        <div>
+          <div class="security-name">SSO &amp; SAML</div>
+          <div class="security-detail">Okta, Azure AD, Google Workspace supported</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 11. FAQ ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Common questions</h2>
+      <p class="section-sub centered">Everything you need to know about switching from DealForce to PipelineOS.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">
+          Is PipelineOS really better than DealForce?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">PipelineOS scores 4.6 on G2 vs DealForce's 4.3. The biggest difference: auto-capture vs manual entry. PipelineOS automatically logs emails, calls, and meetings to the right deals — DealForce requires reps to do it manually. Teams report saving 8+ hours per rep per week.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          How long does it take to switch from DealForce?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Most teams migrate in a single day. Our import tool handles contacts, deals, activities, and custom fields automatically. No consultants or professional services required.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I import my DealForce data?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes, completely. Contacts, deals, activities, custom fields — everything comes over. Our migration tool maps DealForce fields to PipelineOS automatically. Zero data loss guaranteed.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Is PipelineOS secure enough for enterprise?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Absolutely. PipelineOS is SOC 2 Type II certified, GDPR compliant, and supports SSO/SAML with Okta, Azure AD, and Google Workspace. We also offer data residency options for EU-based teams.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          What does PipelineOS cost vs DealForce?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">PipelineOS is free for teams under 10 users. Paid plans start at $29/seat/month — with everything included. DealForce starts at $89/seat/month, and features like AI forecasting ($30/seat) and custom reports (Enterprise only) cost extra.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Does PipelineOS work with my existing tools?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. PipelineOS integrates with Gmail, Outlook, Slack, Zoom, HubSpot, Salesforce, and 200+ other tools. Native integrations — no middleware required. REST API and webhooks for custom workflows.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Can my whole team use PipelineOS?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No seat limits on any plan. The free plan supports up to 10 users. Paid plans have no cap — add as many reps, managers, and ops team members as you need. No per-seat surprises.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 12. CTA ===== -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="cta-title">Ready to close faster?</h2>
+    <p class="cta-sub">Join thousands of sales teams who switched from DealForce to PipelineOS. Free for teams under 10.</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn btn-primary-lg">Start for free</a>
+      <a href="#" class="btn btn-outline">Talk to sales</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 13. FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Pipeline<span>OS</span></div>
+        <p class="footer-desc">The CRM that closes itself. Auto-capture, AI forecasting, and pipeline management — all in one place.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Product</div>
+        <ul class="footer-links">
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Integrations</a></li>
+          <li><a href="#">API Docs</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Legal</div>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">GDPR</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 PipelineOS, Inc. All rights reserved.</span>
+      <span>Made with care in San Francisco</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      // Toggle clicked
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>

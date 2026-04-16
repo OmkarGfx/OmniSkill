@@ -1,7 +1,7 @@
 {
     "name": "slack-agent",
     "category": "community",
-    "source_url": "https://github.com/vercel-labs/slack-agent-skill",
+    "source_url": "https://github.com/vercel-labs/slack-agent-skill/slack-agent",
     "supported_models": [
         "All"
     ],

@@ -1,0 +1,11 @@
+{
+    "name": "apify-actor-development",
+    "category": "community",
+    "source_url": "https://github.com/apify/agent-skills/apify-actor-development",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Develop, debug, and deploy Apify Actors - serverless cloud programs for web scraping, automation, and data processing. Use when creating new Actors, modifying existing ones, or troubleshooting Actor code."
+}

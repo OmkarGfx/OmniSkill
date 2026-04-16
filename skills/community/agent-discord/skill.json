@@ -1,0 +1,13 @@
+{
+    "name": "agent-discord",
+    "category": "community",
+    "source_url": "https://github.com/devxoul/agent-messenger",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [
+        "Bash(agent-discord:*)"
+    ],
+    "install_runtime": "npx",
+    "description": "Interact with Discord servers - send messages, read channels, manage reactions"
+}

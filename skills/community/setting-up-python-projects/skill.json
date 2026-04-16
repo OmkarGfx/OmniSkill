@@ -1,0 +1,11 @@
+{
+    "name": "setting-up-python-projects",
+    "category": "community",
+    "source_url": "https://github.com/quick-brown-foxxx/coding_rules_python",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "ALWAYS LOAD THIS SKILL WHEN CREATING A NEW PYTHON PROJECT OR SETTING UP PROJECT STRUCTURE. Do not scaffold or bootstrap Python projects directly \u2014 use this skill first. Bootstrap new Python projects: directory structure, pyproject.toml, pre-commit, uv sync."
+}

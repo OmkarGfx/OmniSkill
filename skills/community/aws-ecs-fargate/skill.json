@@ -1,0 +1,11 @@
+{
+    "name": "aws-ecs-fargate",
+    "category": "community",
+    "source_url": "https://github.com/bagelhole/devops-security-agent-skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Deploy containers on ECS and Fargate. Configure task definitions, services, and load balancing. Use when running containerized workloads on AWS."
+}

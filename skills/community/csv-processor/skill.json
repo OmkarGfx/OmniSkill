@@ -1,0 +1,11 @@
+{
+    "name": "csv-processor",
+    "category": "community",
+    "source_url": "https://github.com/curiouslearner/devkit",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Parse, transform, and analyze CSV files with advanced data manipulation capabilities."
+}

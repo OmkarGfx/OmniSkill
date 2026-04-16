@@ -1,0 +1,17 @@
+{
+    "name": "sqlserver",
+    "category": "community",
+    "source_url": "https://github.com/claude-dev-suite/claude-dev-suite",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [
+        "Read",
+        " Grep",
+        " Glob",
+        " Write",
+        " Edit"
+    ],
+    "install_runtime": "npx",
+    "description": "Microsoft SQL Server specific features. Covers data types, indexes,\npartitioning, and SQL Server-specific syntax. Use for SQL Server database work.\n\nUSE WHEN: user mentions \"sql server\", \"mssql\", \"IDENTITY\", \"GETDATE()\",\n\"temporal tables\", \"columnstore\", \"SQL Server specifics\", \"Azure SQL\"\n\nDO NOT USE FOR: T-SQL programming - use `tsql` instead,\nPostgreSQL - use `postgresql` instead, Oracle - use `oracle` instead\n"
+}

@@ -1,0 +1,11 @@
+{
+    "name": "skills-store",
+    "category": "community",
+    "source_url": "https://github.com/purong-huang-1121/skills-store",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "This is the main on-chain DeFi skill. Use it for ALL of the following:\nStrategy discovery: 'how to make money on-chain', 'any profitable strategies', '\u94fe\u4e0a\u6709\u4ec0\u4e48\u8d5a\u94b1\u673a\u4f1a', '\u6709\u4ec0\u4e48\u76c8\u5229\u673a\u4f1a', '\u6709\u4ec0\u4e48\u5957\u5229\u673a\u4f1a', '\u600e\u4e48\u8d5a\u94b1', '\u6709\u4ec0\u4e48\u597d\u7684\u7b56\u7565', '\u5e2e\u6211\u7406\u8d22', '\u6709\u4ec0\u4e48\u6536\u76ca\u673a\u4f1a', 'yield opportunities', 'how to earn', 'investment strategy', 'DeFi \u7b56\u7565\u63a8\u8350', '\u6709\u4ec0\u4e48\u81ea\u52a8\u5316\u7b56\u7565', 'automated strategies', 'passive income on-chain'.\nCapability discovery: '\u4f60\u80fd\u505a\u4ec0\u4e48', '\u4f60\u6709\u4ec0\u4e48\u80fd\u529b', '\u4f60\u652f\u6301\u4ec0\u4e48', '\u6709\u4ec0\u4e48\u6280\u80fd', '\u90fd\u6709\u4ec0\u4e48\u529f\u80fd', '\u652f\u6301\u54ea\u4e9b\u7b56\u7565', '\u652f\u6301\u54ea\u4e9b skill', 'what skills are available', 'what can you do', 'what strategies do you support', 'show me all strategies', 'list all skills'.\nAave V3 lending: 'Aave', 'supply to Aave', 'deposit into Aave', 'withdraw from Aave', 'Aave APY', 'Aave markets', 'lending rates', 'health factor', 'borrow on Aave', 'repay Aave', 'DeFi lending', 'Aave V3'.\nMorpho lending: 'Morpho', 'Morpho Blue', 'MetaMorpho vaults', 'Morpho lending rates', 'Morpho markets', 'deposit into Morpho', 'withdraw from Morpho', 'Morpho positions', 'ERC-4626 vaults'.\nUniswap swaps: 'Uniswap', 'swap on Uniswap', 'Uniswap V3 swap', 'Uniswap quote', 'swap WETH for USDC on Uniswap', 'trade tokens on Uniswap', 'Uniswap fee tiers', 'on-chain token swap', 'concentrated liquidity swap'.\nEthena staking: 'Ethena', 'sUSDe', 'USDe staking', 'sUSDe yield', 'sUSDe APY', 'stake USDe', 'unstake sUSDe', 'Ethena balance', 'sUSDe exchange rate', 'cooldown period'.\nAlso activates when the skill has just been installed and the user has not yet chosen a direction."
+}

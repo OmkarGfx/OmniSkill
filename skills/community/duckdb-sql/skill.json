@@ -1,0 +1,16 @@
+{
+    "name": "duckdb-sql",
+    "category": "community",
+    "source_url": "https://github.com/robdmc/claude_skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [
+        "Read",
+        " Grep",
+        " Glob",
+        " Bash"
+    ],
+    "install_runtime": "npx",
+    "description": "Generate DuckDB SQL queries. Use when user asks about DuckDB queries, data analysis, exploring .ddb database files, CSV files, Parquet files, wants help editing/improving SQL, asks to use the duckdb skill, references duckdb assets, or wants to initialize/setup duckdb analysis."
+}

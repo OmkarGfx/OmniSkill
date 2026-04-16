@@ -1,0 +1,92 @@
+# Zola Documentation Site Configuration Template
+# Replace YOUR_DOMAIN with your actual domain
+
+base_url = "https://docs.YOUR_DOMAIN.com"
+title = "Documentation"
+description = "Project documentation and guides"
+default_language = "en"
+
+# Build options
+compile_sass = true
+minify_html = true
+generate_sitemap = true
+generate_robots_txt = true
+
+# No feeds for docs (typically)
+generate_feeds = false
+
+# Search is essential for docs
+build_search_index = true
+
+[search]
+include_title = true
+include_description = true
+include_content = true
+truncate_content_length = 500
+index_format = "elasticlunr_json"
+
+# Markdown
+[markdown]
+render_emoji = false
+smart_punctuation = true
+external_links_target_blank = true
+lazy_async_image = true
+insert_anchor_links = "left"
+definition_list = true
+github_alerts = true
+
+[markdown.highlighting]
+highlight_code = true
+style = "class"
+light_theme = "github-light"
+dark_theme = "github-dark"
+error_on_missing_language = true
+
+# Strict link checking for docs
+[link_checker]
+internal_level = "error"
+external_level = "error"
+
+# No taxonomies needed for most docs
+taxonomies = []
+
+# Translations
+[translations]
+toc = "On this page"
+edit_page = "Edit this page"
+last_updated = "Last updated"
+
+# Custom variables
+[extra]
+# Site branding
+logo = "/images/logo.svg"
+favicon = "/favicon.ico"
+
+# Documentation features
+show_toc = true
+show_last_updated = true
+show_edit_link = true
+repo_url = "https://github.com/YOUR_ORG/YOUR_REPO"
+repo_branch = "main"
+docs_path = "content"
+
+# Navigation
+nav_items = [
+    {label = "Docs", url = "/"},
+    {label = "API", url = "/api/"},
+    {label = "Examples", url = "/examples/"},
+    {label = "GitHub", url = "https://github.com/YOUR_ORG/YOUR_REPO"},
+]
+
+# Sidebar sections (for custom sidebar rendering)
+[extra.sidebar]
+sections = [
+    {title = "Getting Started", path = "getting-started/"},
+    {title = "Guides", path = "guides/"},
+    {title = "Reference", path = "reference/"},
+]
+
+# Version selector (optional)
+# [extra.versions]
+# current = "1.0"
+# available = ["1.0", "0.9", "0.8"]

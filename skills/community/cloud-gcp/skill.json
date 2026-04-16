@@ -1,0 +1,11 @@
+{
+    "name": "cloud-gcp",
+    "category": "community",
+    "source_url": "https://github.com/absolutelyskilled/absolutelyskilled",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Use this skill when architecting on Google Cloud Platform, selecting GCP services, or implementing data and compute solutions. Triggers on Cloud Run, BigQuery, Pub/Sub, GKE, Cloud Functions, Cloud Storage, Firestore, Spanner, Cloud SQL, IAM, VPC, and any task requiring GCP architecture decisions or service selection.\n"
+}

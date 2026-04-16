@@ -1,0 +1,17 @@
+{
+    "name": "serverless",
+    "category": "community",
+    "source_url": "https://github.com/claude-dev-suite/claude-dev-suite",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [
+        "Read",
+        " Grep",
+        " Glob",
+        " Write",
+        " Edit"
+    ],
+    "install_runtime": "npx",
+    "description": "Serverless computing patterns. AWS Lambda, Azure Functions, GCP Cloud Functions.\nDeployment frameworks: Serverless Framework, AWS SAM, SST. Cold starts,\nevent sources, and production optimization.\n\nUSE WHEN: user mentions \"serverless\", \"Lambda\", \"cloud function\", \"Azure Functions\",\n\"SAM\", \"SST\", \"Serverless Framework\", \"cold start\", \"FaaS\"\n\nDO NOT USE FOR: container orchestration - use `kubernetes` or `docker`;\nalways-on servers - use backend framework skills\n"
+}

@@ -1,0 +1,11 @@
+{
+    "name": "entra-agent-user",
+    "category": "community",
+    "source_url": "https://github.com/github/awesome-copilot/entra-agent-user",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Create Agent Users in Microsoft Entra ID from Agent Identities, enabling AI agents to act as digital workers with user identity capabilities in Microsoft 365 and Azure environments."
+}

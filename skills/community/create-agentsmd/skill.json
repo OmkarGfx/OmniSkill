@@ -1,0 +1,11 @@
+{
+    "name": "create-agentsmd",
+    "category": "community",
+    "source_url": "https://github.com/github/awesome-copilot/create-agentsmd",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Prompt for generating an AGENTS.md file for a repository"
+}

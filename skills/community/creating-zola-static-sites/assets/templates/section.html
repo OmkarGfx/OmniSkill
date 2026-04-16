@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} | {{ config.title }}{% endblock %}
+
+{% block content %}
+<section class="section-listing">
+    <h1>{{ section.title }}</h1>
+    
+    {% if section.description %}
+    <p class="description">{{ section.description }}</p>
+    {% endif %}
+    
+    {% if section.content %}
+    <div class="section-content">
+        {{ section.content | safe }}
+    </div>
+    {% endif %}
+
+    {# Use paginator if pagination is enabled, otherwise use section.pages #}
+    {% if paginator %}
+    {% set pages = paginator.pages %}
+    {% else %}
+    {% set pages = section.pages %}
+    {% endif %}
+
+    {% if pages %}
+    <ul class="post-list">
+    {% for page in pages %}
+        <li class="post-item">
+            <article>
+                <h2><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
+                {% if page.date %}
+                <time datetime="{{ page.date | date(format='%Y-%m-%d') }}">
+                    {{ page.date | date(format="%B %d, %Y") }}
+                </time>
+                {% endif %}
+                {% if page.description %}
+                <p>{{ page.description }}</p>
+                {% elif page.summary %}
+                <p>{{ page.summary | striptags | truncate(length=200) }}</p>
+                {% endif %}
+                {% if page.taxonomies.tags %}
+                <ul class="tags">
+                {% for tag in page.taxonomies.tags %}
+                    <li><a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">{{ tag }}</a></li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+            </article>
+        </li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <p>No posts yet.</p>
+    {% endif %}
+
+    {# Pagination navigation #}
+    {% if paginator %}
+    <nav class="pagination">
+        {% if paginator.previous %}
+        <a href="{{ paginator.previous }}" class="prev">← Newer</a>
+        {% else %}
+        <span class="prev disabled">← Newer</span>
+        {% endif %}
+        
+        <span class="page-info">
+            Page {{ paginator.current_index }} of {{ paginator.number_pagers }}
+        </span>
+        
+        {% if paginator.next %}
+        <a href="{{ paginator.next }}" class="next">Older →</a>
+        {% else %}
+        <span class="next disabled">Older →</span>
+        {% endif %}
+    </nav>
+    {% endif %}
+
+    {# Subsections #}
+    {% if section.subsections %}
+    <h2>Sections</h2>
+    <ul class="subsections">
+    {% for subsection_path in section.subsections %}
+        {% set subsection = get_section(path=subsection_path) %}
+        <li>
+            <a href="{{ subsection.permalink }}">{{ subsection.title }}</a>
+            {% if subsection.description %}
+            <p>{{ subsection.description }}</p>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+</section>
+{% endblock content %}

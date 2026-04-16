@@ -1,0 +1,11 @@
+{
+    "name": "apify-ultimate-scraper",
+    "category": "community",
+    "source_url": "https://github.com/apify/agent-skills/apify-ultimate-scraper",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Universal AI-powered web scraper for any platform. Scrape data from Instagram, Facebook, TikTok, YouTube, Google Maps, Google Search, Google Trends, Booking.com, and TripAdvisor. Use for lead generation, brand monitoring, competitor analysis, influencer discovery, trend research, content analytics, audience analysis, or any data extraction task."
+}

@@ -1,0 +1,11 @@
+{
+    "name": "firebase-firestore-standard",
+    "category": "community",
+    "source_url": "https://github.com/firebase/agent-skills/firebase-firestore-standard",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Comprehensive guide for Firestore Standard Edition, including provisioning, security rules, and SDK usage. Use this skill when the user needs help setting up Firestore, writing security rules, or using the Firestore SDK in their application."
+}

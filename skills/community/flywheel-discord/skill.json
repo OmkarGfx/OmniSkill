@@ -1,0 +1,11 @@
+{
+    "name": "flywheel-discord",
+    "category": "community",
+    "source_url": "https://github.com/dicklesworthstone/agent_flywheel_clawdbot_skills_and_integrations",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Security rules and behavioral guidelines for operating as Clawdstein in The Agent Flywheel Hub Discord server. This is a PUBLIC community server\u2014apply strict data isolation."
+}

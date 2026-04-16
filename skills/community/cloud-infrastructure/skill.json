@@ -1,0 +1,11 @@
+{
+    "name": "cloud-infrastructure",
+    "category": "community",
+    "source_url": "https://github.com/maroffo/claude-forge",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "AWS/GCP cloud infrastructure: Well-Architected, security, cost, observability. Use when working with Terraform outputs, IAM policies, VPC design, load balancers, or cloud architecture decisions."
+}

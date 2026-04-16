@@ -1,0 +1,11 @@
+{
+    "name": "sqlite-db",
+    "category": "community",
+    "source_url": "https://github.com/bfollington/terma",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "General guide for using the sqlite3 CLI to build composable knowledge databases. Use this skill when creating SQLite databases, designing schemas, querying data, managing relationships, or building new sqlite-based domain skills. Provides the foundational patterns that all specialized sqlite skills build upon."
+}

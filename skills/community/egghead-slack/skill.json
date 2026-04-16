@@ -1,0 +1,11 @@
+{
+    "name": "egghead-slack",
+    "category": "community",
+    "source_url": "https://github.com/joelhooks/joelclaw",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Joel's private egghead.io Slack integration \u2014 channel taxonomy, token config, passive monitoring, and message intelligence pipeline."
+}

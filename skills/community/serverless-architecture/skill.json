@@ -1,0 +1,11 @@
+{
+    "name": "serverless-architecture",
+    "category": "community",
+    "source_url": "https://github.com/aj-geddes/useful-ai-prompts",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Design and implement serverless applications using AWS Lambda, Azure Functions, and GCP Cloud Functions with event-driven patterns and orchestration."
+}

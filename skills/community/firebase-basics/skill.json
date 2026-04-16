@@ -1,0 +1,11 @@
+{
+    "name": "firebase-basics",
+    "category": "community",
+    "source_url": "https://github.com/firebase/agent-skills/firebase-basics",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Provides foundational setup, authentication, and project management workflows for Firebase using the Firebase CLI. Use when checking Firebase CLI version (must use 'npx -y firebase-tools@latest --version'), initializing a Firebase environment, authenticating, setting active projects, or executing core Firebase CLI commands."
+}

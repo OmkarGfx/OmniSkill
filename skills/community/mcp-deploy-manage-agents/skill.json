@@ -1,0 +1,11 @@
+{
+    "name": "mcp-deploy-manage-agents",
+    "category": "community",
+    "source_url": "https://github.com/github/awesome-copilot/mcp-deploy-manage-agents",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Skill converted from mcp-deploy-manage-agents.prompt.md"
+}

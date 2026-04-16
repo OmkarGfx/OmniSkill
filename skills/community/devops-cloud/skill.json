@@ -1,0 +1,11 @@
+{
+    "name": "devops-cloud",
+    "category": "community",
+    "source_url": "https://github.com/travisjneuman/.claude",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "DevOps, cloud infrastructure, and platform engineering. Use when working with AWS, GCP, Azure, Kubernetes, Terraform, CI/CD pipelines, or infrastructure as code."
+}

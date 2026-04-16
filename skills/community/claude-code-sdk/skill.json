@@ -1,0 +1,11 @@
+{
+    "name": "claude-code-sdk",
+    "category": "community",
+    "source_url": "https://github.com/miles990/claude-software-skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Claude Code SDK integration for building AI-powered applications with OAuth and API Key authentication"
+}

@@ -1,0 +1,11 @@
+{
+    "name": "github-tools",
+    "category": "community",
+    "source_url": "https://github.com/bsamiee/parametric_forge",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Executes GitHub operations via gh CLI wrapper. Use when managing issues, pull requests, workflows, CI runs, projects, releases, cache, labels, or searching repositories and code."
+}

@@ -1,0 +1,11 @@
+{
+    "name": "aws-solution-architect",
+    "category": "community",
+    "source_url": "https://github.com/questnova502/claude-skills-sync",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Expert AWS solution architecture for startups focusing on serverless, scalable, and cost-effective cloud infrastructure with modern DevOps practices and infrastructure-as-code"
+}

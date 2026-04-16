@@ -1,0 +1,11 @@
+{
+    "name": "firestore-security-rules-auditor",
+    "category": "community",
+    "source_url": "https://github.com/firebase/agent-skills/firestore-security-rules-auditor",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "A skill to evaluate how secure Firestore security rules are. Use this when Firestore security rules are updated to ensure that the generated rules are extremely secure and robust."
+}

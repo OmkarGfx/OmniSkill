@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+
+{% block head %}
+{{ super() }}
+{% if page.extra.cover_image %}
+<meta property="og:image" content="{{ get_url(path=page.path ~ page.extra.cover_image) }}">
+{% endif %}
+{% endblock head %}
+
+{% block content %}
+<article class="page">
+    <header class="page-header">
+        <h1>{{ page.title }}</h1>
+        
+        <div class="meta">
+            {% if page.date %}
+            <time datetime="{{ page.date | date(format='%Y-%m-%d') }}">
+                {{ page.date | date(format="%B %d, %Y") }}
+            </time>
+            {% endif %}
+            
+            {% if page.updated and page.updated != page.date %}
+            <span class="updated">
+                Updated: {{ page.updated | date(format="%B %d, %Y") }}
+            </span>
+            {% endif %}
+            
+            {% if page.reading_time %}
+            <span class="reading-time">{{ page.reading_time }} min read</span>
+            {% endif %}
+        </div>
+        
+        {% if page.taxonomies.tags %}
+        <ul class="tags">
+        {% for tag in page.taxonomies.tags %}
+            <li><a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">{{ tag }}</a></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    </header>
+
+    {# Table of Contents #}
+    {% if page.toc and page.extra.toc | default(value=true) %}
+    <nav class="toc">
+        <h2>Contents</h2>
+        <ul>
+        {% for h1 in page.toc %}
+            <li>
+                <a href="{{ h1.permalink }}">{{ h1.title }}</a>
+                {% if h1.children %}
+                <ul>
+                {% for h2 in h1.children %}
+                    <li>
+                        <a href="{{ h2.permalink }}">{{ h2.title }}</a>
+                        {% if h2.children %}
+                        <ul>
+                        {% for h3 in h2.children %}
+                            <li><a href="{{ h3.permalink }}">{{ h3.title }}</a></li>
+                        {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    </nav>
+    {% endif %}
+
+    <div class="content">
+        {{ page.content | safe }}
+    </div>
+
+    {# Previous/Next navigation #}
+    {% if page.lower or page.higher %}
+    <nav class="post-nav">
+        {% if page.lower %}
+        <a href="{{ page.lower.permalink }}" class="prev">
+            <span>← Previous</span>
+            <strong>{{ page.lower.title }}</strong>
+        </a>
+        {% endif %}
+        
+        {% if page.higher %}
+        <a href="{{ page.higher.permalink }}" class="next">
+            <span>Next →</span>
+            <strong>{{ page.higher.title }}</strong>
+        </a>
+        {% endif %}
+    </nav>
+    {% endif %}
+
+    {# Translations #}
+    {% if page.translations %}
+    <div class="translations">
+        <span>Also available in:</span>
+        {% for trans in page.translations %}
+        <a href="{{ trans.permalink }}">{{ trans.lang | upper }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+</article>
+{% endblock content %}

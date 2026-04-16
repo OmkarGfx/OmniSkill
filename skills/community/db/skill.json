@@ -1,0 +1,11 @@
+{
+    "name": "db",
+    "category": "community",
+    "source_url": "https://github.com/johnlindquist/claude",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "MongoDB Atlas cloud database management including clusters, schemas, aggregation pipelines, and Prisma ORM integration. Activate for MongoDB queries, schema design, indexing, and Atlas administration."
+}
