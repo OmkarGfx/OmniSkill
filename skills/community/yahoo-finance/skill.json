@@ -1,0 +1,11 @@
+{
+    "name": "yahoo-finance",
+    "category": "community",
+    "source_url": "https://github.com/gracefullight/stock-checker",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Get stock prices, quotes, fundamentals, earnings, options, dividends, and analyst ratings using Yahoo Finance. Uses yfinance library - no API key required."
+}

@@ -1,0 +1,11 @@
+{
+    "name": "finance-metrics-quickref",
+    "category": "community",
+    "source_url": "https://github.com/deanpeters/product-manager-skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Look up SaaS finance metrics, formulas, and benchmarks fast. Use when you need a quick metric definition, formula, or benchmark during analysis."
+}

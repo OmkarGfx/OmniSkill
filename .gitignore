@@ -1,0 +1,17 @@
+# System Files
+.DS_Store
+Thumbs.db
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Project Specific
+ingester/temp/
+ingester/venv/
+.env
+.vscode/
+
+# Build/Dist
+build/
+dist/
+*.egg-info/

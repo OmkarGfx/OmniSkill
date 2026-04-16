@@ -1,0 +1,11 @@
+{
+    "name": "finance-news",
+    "category": "community",
+    "source_url": "https://github.com/sundial-org/awesome-openclaw-skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Market news briefings with AI summaries. Use when asked about stock news, market updates, portfolio performance, morning/evening briefings, financial headlines, or price alerts. Supports US/Europe/Japan markets, WhatsApp delivery, and English/German output."
+}

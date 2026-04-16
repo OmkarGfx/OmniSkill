@@ -1,0 +1,13 @@
+sources:
+  - name: "MCP Servers"
+    url: "https://github.com/modelcontextprotocol/servers"
+    type: "mcp"
+    sub_paths:
+      - "src/filesystem"
+      - "src/fetch"
+      - "src/git"
+  - name: "Universal Discovery"
+    type: "discovery"
+    category: "community"
+    query: "search"
+    limit: 5

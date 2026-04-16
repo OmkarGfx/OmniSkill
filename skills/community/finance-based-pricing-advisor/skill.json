@@ -1,0 +1,11 @@
+{
+    "name": "finance-based-pricing-advisor",
+    "category": "community",
+    "source_url": "https://github.com/deanpeters/product-manager-skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Evaluate pricing changes using ARPU, conversion, churn risk, NRR, and payback. Use when deciding whether a pricing move should ship."
+}
