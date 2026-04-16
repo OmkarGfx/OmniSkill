@@ -1,17 +1,17 @@
-# 🌀 OmniSkill-10K
+# 🌀 OmniSkill
 
-> **The World's Largest Standardized Hub for AI Agent Capabilities.**
+> **The Infinite Hub for Standardized AI Agent Capabilities.**
 
-**OmniSkill** is a massive, curated repository designed to empower AI agents with a standardized set of 10,000+ skills across all major models (Gemini, Claude, GPT, etc.). By leveraging the **Model Context Protocol (MCP)** and advanced discovery techniques, we provide a unified logic layer for agents to interact with any system.
+**OmniSkill** is a massive, curated repository designed to empower AI agents with an ever-expanding universe of skills across all major models (Gemini, Claude, GPT, etc.). By leveraging the **Model Context Protocol (MCP)** and automated discovery, we provide a unified logic layer for agents to interact with the world at infinite scale.
 
 ---
 
 ## 🛠️ Key Features
 
-- **10,000+ Skills**: A comprehensive library covering coding, finance, social, system OS, and more.
+- **Infinite Skill Expansion**: A core engine designed to handle thousands—and eventually millions—of high-quality skills.
 - **Unified Metadata**: Every skill follows a strict JSON schema for seamless agentic integration.
 - **Instruction-Complete**: Full `SKILL.md` instructions for zero-shot capability adoption.
-- **Automated Ingestion**: Built-in discovery engine to keep the hub growing.
+- **Automated Ingestion**: High-performance discovery engine built for large-scale ingestion.
 
 ---
 
@@ -19,7 +19,7 @@
 
 ```text
 /
-├── skills/               # The Mega-Library (Categorized)
+├── skills/               # The Capability Library (Categorized)
 │   ├── mcp/              # Official Model Context Protocol servers
 │   └── community/        # Discovered community skills (standardized)
 ├── ingester/             # The brain of the OmniSkill engine

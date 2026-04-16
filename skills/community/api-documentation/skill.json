@@ -1,0 +1,11 @@
+{
+    "name": "api-documentation",
+    "category": "community",
+    "source_url": "https://github.com/curiouslearner/devkit",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Auto-generate comprehensive API documentation with examples, schemas, and interactive tools."
+}

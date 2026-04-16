@@ -1,0 +1,11 @@
+{
+    "name": "firecrawl",
+    "category": "community",
+    "source_url": "https://github.com/connorads/dotfiles",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Official Firecrawl CLI skill for web scraping, search, crawling, and browser automation. Returns clean LLM-optimized markdown.\n\nUSE FOR:\n- Web search and research\n- Scraping pages, docs, and articles\n- Site mapping and bulk content extraction\n- Browser automation for interactive pages\n\nMust be pre-installed and authenticated. See rules/install.md for setup, rules/security.md for output handling.\n"
+}

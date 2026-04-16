@@ -1,0 +1,148 @@
+---
+approved: 2026-02-18
+validated: [architect]
+---
+
+# Spec 395: Inline Consultation Feedback
+
+## Problem
+
+Consultation feedback (concerns from reviewers and rebuttals from builders) is currently stored in separate files in the porch project directory:
+
+```
+codev/projects/386-documentation-audit/
+  386-tier_1_public-iter1-gemini.txt
+  386-tier_1_public-iter1-codex.txt
+  386-tier_1_public-iter1-claude.txt
+  386-tier_1_public-iter1-rebuttals.md
+  386-tier_2_developer-iter1-gemini.txt
+  ...
+```
+
+This has several problems:
+1. **Context is scattered** — to understand a spec's review history, you have to hunt through multiple files in a different directory
+2. **Review files are ephemeral** — they live in porch project dirs that get cleaned up, losing valuable context
+3. **No single source of truth** — the spec/plan says one thing, the reviews say another, and you have to cross-reference manually
+4. **Clutter** — each consultation round generates 3-4 files per phase, accumulating dozens of files
+
+## Solution
+
+The **builder** includes consultation feedback directly in the **review document** (`codev/reviews/<project>.md`) as structured sections. No porch file manipulation needed — the builder already reads consultation output and can summarize it naturally.
+
+All consultation history goes in the review file. Specs and plans stay clean as forward-looking documents. The review becomes the single source for "what feedback was given and how was it handled."
+
+### Format
+
+The builder appends a Consultation section for each phase that had consultation:
+
+```markdown
+## Consultation Feedback
+
+### Specify Phase (Round 1)
+
+#### Gemini
+- **Concern**: UTC dates should be used consistently
+  - **Addressed**: Fixed all date handling to use UTC in commit abc123
+- **Concern**: Missing error handling for network timeouts
+  - **Rebutted**: Timeouts are handled by the HTTP client library's default 30s timeout — adding explicit handling would duplicate framework behavior
+
+#### Codex
+- **Concern**: Schema validation should use zod instead of manual checks
+  - **Addressed**: Migrated to zod in the plan phase
+- **Concern**: Consider adding rate limiting
+  - **N/A**: Out of scope for this spec, tracked as future work
+
+#### Claude
+- No concerns raised (APPROVE)
+
+### Plan Phase (Round 1)
+
+#### Gemini
+- **Concern**: Phase 2 has too many files — split into two phases
+  - **Rebutted**: The files are closely related and splitting would create unnecessary coordination overhead
+...
+```
+
+### Response Types
+
+Each concern gets one of three responses:
+
+| Response | Meaning | When to use |
+|----------|---------|-------------|
+| **Addressed** | Fixed the issue | Builder made a code/doc change to resolve the concern |
+| **Rebutted** | Disagreed with reasoning | Builder explains why the concern doesn't apply or the current approach is better |
+| **N/A** | Not applicable | Concern is out of scope, already handled elsewhere, or moot |
+
+### Builder Ownership
+
+The **builder writes the consultation sections** as part of the review phase. This is implemented via prompt instructions, not porch code:
+
+1. Porch's review phase prompt instructs the builder to include a `## Consultation Feedback` section in the review document
+2. The builder reads the raw consultation output files (which already exist in the project directory) and summarizes concerns with its responses
+3. No programmatic parsing, no placeholder filling, no two-pass file editing
+
+**Why builder, not porch:**
+- Builders already read and respond to consultation feedback — they understand the context
+- Prompt-based instructions are simpler and more flexible than programmatic file manipulation
+- No fragile KEY_ISSUES parsing or markdown placeholder logic needed
+- The builder can write natural, contextual responses rather than filling rigid templates
+
+### Where Consultation History Lives
+
+**Everything goes in the review file** (`codev/reviews/<project>.md`).
+
+- Spec consultation feedback → review file
+- Plan consultation feedback → review file
+- Implementation phase consultation feedback → review file
+- PR review consultation feedback → review file
+
+The review document already captures lessons learned and retrospective — consultation feedback is part of that story. Specs and plans remain clean forward-looking documents without appended noise.
+
+### Multi-Iteration Behavior
+
+If a phase has multiple consultation rounds (e.g., REQUEST_CHANGES → fix → re-review), each round gets its own subsection:
+
+```markdown
+### Implement Phase: auth-module (Round 1)
+...
+### Implement Phase: auth-module (Round 2)
+...
+```
+
+### What Changes
+
+1. **Porch review phase prompt** (`porch/prompts/review.md`) — add instructions telling the builder to include a `## Consultation Feedback` section summarizing all consultation concerns and responses from every phase
+2. **Review template** (`protocols/spir/templates/review.md`) — add a `## Consultation Feedback` section placeholder
+3. **Raw review files** — still generated by consult CLI, still available during the session, still used by porch for verdict parsing. No changes to consultation process itself.
+
+### What Stays The Same
+
+- The consultation process itself (3-way parallel review)
+- The verdict system (APPROVE / REQUEST_CHANGES)
+- Gate approval flow
+- How porch parses verdicts from raw review output
+- Raw review output still generated and available during the session
+
+## Scope
+
+- Update porch review phase prompt to instruct builder to include consultation feedback
+- Update review template with consultation feedback section
+- Keep raw review files as ephemeral session artifacts (not committed)
+- Existing reviews are not retroactively modified
+
+### Edge Cases
+
+- **All APPROVE, no concerns across all phases**: Builder writes "No concerns raised — all consultations approved" in the consultation section
+- **COMMENT verdicts**: Include their feedback — comments are non-blocking but may have useful context
+- **CONSULT_ERROR (model failure)**: Builder notes "Consultation failed for [model]" for that entry
+- **Builder forgets to include section**: Review template has the placeholder as a reminder; porch doesn't enforce programmatically
+
+## Acceptance Criteria
+
+- [ ] Review phase prompt instructs builder to include consultation feedback
+- [ ] Review template includes `## Consultation Feedback` section placeholder
+- [ ] Builder-written consultation sections capture concerns with Addressed/Rebutted/N/A responses
+- [ ] All phases' consultation feedback appears in the single review file
+- [ ] Raw review output still available during the session
+- [ ] Works for SPIR spec, plan, implementation, and PR review consultations
+- [ ] Specs and plans remain unmodified (no appended sections)

@@ -1,0 +1,11 @@
+{
+    "name": "playwright-web-scraper",
+    "category": "community",
+    "source_url": "https://github.com/dawiddutoit/custom-claude",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Extract structured data from multiple web pages using Playwright with built-in ethical\ncrawling practices including rate limiting, robots.txt compliance, and error monitoring.\nUse when asked to \"scrape data from\", \"extract information from pages\", \"collect data\nfrom site\", \"crawl multiple pages\", or when gathering structured data from websites.\nSupports pagination, multi-page extraction, data aggregation, and export to CSV/JSON/Markdown.\nWorks with browser_navigate, browser_evaluate, browser_wait_for, and browser_snapshot tools.\n"
+}

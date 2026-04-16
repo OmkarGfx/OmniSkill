@@ -1,0 +1,11 @@
+{
+    "name": "writing-typescript-code",
+    "category": "community",
+    "source_url": "https://github.com/microsoft-foundry/foundry-agent-webapp",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Provides TypeScript and React coding standards for this repository. Use when writing or modifying TypeScript code, creating React components, implementing MSAL authentication, or working with the frontend."
+}

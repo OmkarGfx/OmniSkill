@@ -1,0 +1,11 @@
+{
+    "name": "vercel-sandbox",
+    "category": "community",
+    "source_url": "https://github.com/computesdk/sandbox-skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Guide for creating and managing Vercel sandboxes using ComputeSDK. Use when building applications that need Vercel's globally distributed serverless sandbox environments for code execution with Node.js or Python runtimes."
+}

@@ -1,13 +1,33 @@
 sources:
-  - name: "MCP Servers"
-    url: "https://github.com/modelcontextprotocol/servers"
+  - name: "MCP Core"
     type: "mcp"
+    url: "https://github.com/modelcontextprotocol/servers"
     sub_paths:
       - "src/filesystem"
       - "src/fetch"
       - "src/git"
-  - name: "Universal Discovery"
+  - name: "Web & Search"
     type: "discovery"
     category: "community"
-    query: "search"
-    limit: 5
+    query: "search web browser scrape"
+    limit: 50
+  - name: "Coding & Dev"
+    type: "discovery"
+    category: "community"
+    query: "code dev github script"
+    limit: 50
+  - name: "Finance & Market"
+    type: "discovery"
+    category: "community"
+    query: "finance stock crypto market"
+    limit: 50
+  - name: "Productivity"
+    type: "discovery"
+    category: "community"
+    query: "calendar todo note productivity"
+    limit: 50
+  - name: "API & Cloud"
+    type: "discovery"
+    category: "community"
+    query: "api aws cloud tool"
+    limit: 50

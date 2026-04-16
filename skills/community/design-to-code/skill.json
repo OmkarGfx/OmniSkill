@@ -1,0 +1,11 @@
+{
+    "name": "design-to-code",
+    "category": "community",
+    "source_url": "https://github.com/davila7/claude-code-templates",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Pixel-perfect Figma to React conversion using coderio. Generates production-ready code (TypeScript, Vite, TailwindCSS V4) with high visual fidelity. Features robust error handling, checkpoint recovery, and streamlined execution via helper script."
+}

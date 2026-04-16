@@ -1,0 +1,11 @@
+{
+    "name": "vscode-extensions",
+    "category": "community",
+    "source_url": "https://github.com/vamseeachanta/workspace-hub",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "VS Code productivity optimization with essential extensions, settings sync, profiles, keybindings, snippets, and workspace configuration"
+}

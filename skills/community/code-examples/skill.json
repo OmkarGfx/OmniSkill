@@ -1,0 +1,11 @@
+{
+    "name": "code-examples",
+    "category": "community",
+    "source_url": "https://github.com/krmcbride/claude-plugins",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Find real-world code examples across millions of GitHub repositories. Use when the user wants to see how others implement something, find usage patterns, or discover code examples in the wild."
+}

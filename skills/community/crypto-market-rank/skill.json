@@ -1,0 +1,11 @@
+{
+    "name": "crypto-market-rank",
+    "category": "community",
+    "source_url": "https://github.com/binance/binance-skills-hub",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Crypto market rankings and leaderboards. Query trending tokens, top searched tokens, Binance Alpha tokens,\ntokenized stocks, social hype sentiment ranks, smart money inflow token rankings,\ntop meme token rankings from Pulse launchpad, and top trader PnL leaderboards.\nUse this skill when users ask about token rankings, market trends, social buzz, meme rankings, breakout meme tokens, or top traders.\n"
+}

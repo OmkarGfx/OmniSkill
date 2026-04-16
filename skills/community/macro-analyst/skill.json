@@ -1,0 +1,11 @@
+{
+    "name": "macro-analyst",
+    "category": "community",
+    "source_url": "https://github.com/bitgetlimited/agent_hub",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Macro-economic and cross-asset analysis for crypto market context. Use this skill whenever the user asks about the broader economic environment and its effect on crypto or risk assets. Triggers include: macro outlook, interest rates, Fed policy, rate cut, rate hike, FOMC, yield curve, inverted yield curve, recession risk, inflation, CPI, PCE, jobs data, unemployment, GDP, 10-year yield, 2-year yield, spread, dollar strength, DXY, risk-on, risk-off, gold correlation, BTC vs S&P, cross-asset correlation, global markets, tech earnings impact on crypto, forex rates, euro, yen, China market, A-shares, economic calendar, macro environment."
+}

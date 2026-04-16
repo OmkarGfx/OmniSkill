@@ -1,0 +1,11 @@
+{
+    "name": "web-archive-scraper",
+    "category": "community",
+    "source_url": "https://github.com/athina-ai/goose-skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Search the Wayback Machine for archived versions of websites. Extract cached pages, customer lists, testimonials, and partner directories from sites that have changed or gone offline. Uses the free CDX API \u2014 no API key needed."
+}
