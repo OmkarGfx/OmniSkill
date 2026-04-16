@@ -1,0 +1,11 @@
+{
+    "name": "llm-advisor",
+    "category": "community",
+    "source_url": "https://github.com/ckorhonen/claude-skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Consult other LLMs (GPT-4.1, o4-mini, Gemini 2.5 Pro, Claude Opus) for second opinions on complex bugs, hard problems, planning, and architecture decisions. Use proactively when stuck for 15+ minutes or facing complex debugging. Use when user says 'ask Gemini/GPT/Claude about X' or 'get a second opinion'."
+}

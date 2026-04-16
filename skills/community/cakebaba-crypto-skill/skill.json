@@ -1,0 +1,11 @@
+{
+    "name": "cakebaba-crypto-skill",
+    "category": "community",
+    "source_url": "https://github.com/kelvin6365/cakebaba-crypto-skill",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Professional cryptocurrency trading analysis using Dow Theory 123 Rule and trend trading strategies. Provides detailed technical analysis, risk assessment, and leveraged trading recommendations (10x/50x/100x). Use when user asks about buying/selling crypto, mentions leverage trading, requests chart analysis, or discusses BTC/ETH/altcoins."
+}

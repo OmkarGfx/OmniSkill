@@ -1,0 +1,11 @@
+{
+    "name": "divergence",
+    "category": "community",
+    "source_url": "https://github.com/alsk1992/cloddsbot",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Spot vs Polymarket divergence trading on 15-minute crypto markets"
+}

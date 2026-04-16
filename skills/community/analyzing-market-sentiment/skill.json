@@ -1,0 +1,14 @@
+{
+    "name": "analyzing-market-sentiment",
+    "category": "community",
+    "source_url": "https://github.com/jeremylongshore/claude-code-plugins-plus-skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [
+        "Read",
+        " Bash(crypto:sentiment-*)"
+    ],
+    "install_runtime": "npx",
+    "description": "Analyze cryptocurrency market sentiment using Fear & Greed Index, news analysis, and market momentum.\nUse when gauging overall market mood, checking if markets are fearful or greedy, or analyzing sentiment for specific coins.\nTrigger with phrases like \"analyze crypto sentiment\", \"check market mood\", \"is the market fearful\", \"sentiment for Bitcoin\", or \"Fear and Greed index\".\n"
+}

@@ -1,0 +1,11 @@
+{
+    "name": "cn-web-search",
+    "category": "community",
+    "source_url": "https://github.com/joansongjr/cn-web-search",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "\u4e2d\u6587\u7f51\u9875\u641c\u7d22 - \u805a\u5408 17 \u4e2a\u514d\u8d39\u641c\u7d22\u5f15\u64ce\uff0c\u65e0\u9700 API Key\uff0c\u7eaf\u7f51\u9875\u6293\u53d6\uff0c\u652f\u6301\u516c\u4f17\u53f7/\u8d22\u7ecf/\u6280\u672f/\u5b66\u672f/\u77e5\u8bc6\u641c\u7d22\u3002"
+}

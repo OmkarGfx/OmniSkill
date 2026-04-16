@@ -1,0 +1,11 @@
+{
+    "name": "crypto-trading-advisor",
+    "category": "community",
+    "source_url": "https://github.com/0xrikt/crypto-skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Crypto trading analysis advisor. Triggers when users ask whether a token is worth trading, if a position can be taken, or for trend analysis. Provides high-value data sources and professional trading principles. Trigger phrases include \"should I trade\", \"can I long/short\", \"is it a good setup\", \"trade recommendation\", \"can I enter here\", \"what's the play\" etc."
+}

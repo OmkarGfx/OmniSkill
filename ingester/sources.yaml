@@ -2,32 +2,20 @@ sources:
   - name: "MCP Core"
     type: "mcp"
     url: "https://github.com/modelcontextprotocol/servers"
-    sub_paths:
-      - "src/filesystem"
-      - "src/fetch"
-      - "src/git"
-  - name: "Web & Search"
-    type: "discovery"
-    category: "community"
-    query: "search web browser scrape"
-    limit: 50
-  - name: "Coding & Dev"
-    type: "discovery"
-    category: "community"
-    query: "code dev github script"
-    limit: 50
-  - name: "Finance & Market"
-    type: "discovery"
-    category: "community"
-    query: "finance stock crypto market"
-    limit: 50
-  - name: "Productivity"
-    type: "discovery"
-    category: "community"
-    query: "calendar todo note productivity"
-    limit: 50
-  - name: "API & Cloud"
-    type: "discovery"
-    category: "community"
-    query: "api aws cloud tool"
-    limit: 50
+    sub_paths: ["src/filesystem", "src/fetch", "src/git"]
+  - { name: "AI & LLM", type: "discovery", query: "ai llm gpt claude gemini agent prompt", limit: 500 }
+  - { name: "Web Discovery", type: "discovery", query: "search web browser scrape crawl navigation", limit: 500 }
+  - { name: "Coding Powerhouse", type: "discovery", query: "code github dev script python rust javascript", limit: 500 }
+  - { name: "Data Systems", type: "discovery", query: "file json csv sql database storage pdf", limit: 500 }
+  - { name: "Finance Infinite", type: "discovery", query: "finance stock crypto trading market money", limit: 500 }
+  - { name: "Communication", type: "discovery", query: "discord twitter slack email linkedin messaging", limit: 500 }
+  - { name: "Creative Media", type: "discovery", query: "image video audio media speech text-to-speech", limit: 500 }
+  - { name: "System Control", type: "discovery", query: "system shell linux process network windows command", limit: 500 }
+  - { name: "Cloud Engineering", type: "discovery", query: "cloud aws gcp azure docker kubernetes serverless", limit: 500 }
+  - { name: "Productivity Suite", type: "discovery", query: "calendar todo notes sheets docs automation", limit: 500 }
+  - { name: "Knowledge & News", type: "discovery", query: "news weather math science history education", limit: 500 }
+  - { name: "Lifestyle & Travel", type: "discovery", query: "travel flight hotel food shopping maps health", limit: 500 }
+  - { name: "Utility & Tools", type: "discovery", query: "utility tool cli helper productivity automation", limit: 500 }
+  - { name: "Marketplace & E-com", type: "discovery", query: "amazon shop stripe payment checkout products", limit: 500 }
+  - { name: "Security & Ops", type: "discovery", query: "security auth vault encryption monitoring logs", limit: 500 }
+  - { name: "IoT & Hardware", type: "discovery", query: "iot hardware home-automation bridge sensor serial", limit: 500 }

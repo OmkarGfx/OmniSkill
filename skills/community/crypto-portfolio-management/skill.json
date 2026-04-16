@@ -1,0 +1,11 @@
+{
+    "name": "crypto-portfolio-management",
+    "category": "community",
+    "source_url": "https://github.com/aaaaqwq/agi-super-skills",
+    "supported_models": [
+        "All"
+    ],
+    "capabilities": [],
+    "install_runtime": "npx",
+    "description": "Guide to cryptocurrency portfolio management \u2014 asset allocation, rebalancing strategies, risk-adjusted returns, benchmarking, and tax-loss harvesting. Use when helping users build portfolios, rebalance holdings, or evaluate portfolio performance."
+}
